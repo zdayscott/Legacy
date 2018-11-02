@@ -8,13 +8,24 @@ public class PlayerController : MonoBehaviour {
 
     public int speed = 5;
 
+    [Header("Attack Variables")]
     public GameObject Attack;
-
     Vector2 attackingDirection = new Vector2(1,0);
+    //Time the attack collider will be active
+    public float attackTime = .25f;
+    private float attackTimeCurrent;
+    //Time between attacks
+    public float rechargeTime = .4f;
+    private float rechargeTimeCurrent;
+
+
+
 	// Use this for initialization
 	void Start () {
 
         rb = this.GetComponent<Rigidbody2D>();
+        attackTimeCurrent = attackTime;
+        rechargeTimeCurrent = rechargeTime;
 		
 	}
 	
@@ -37,11 +48,25 @@ public class PlayerController : MonoBehaviour {
 
         if(Input.GetButton("Fire1"))
         {
-            Debug.Log("Firing");
-
-            Attack.transform.localPosition = attackingDirection * .7f;
-            Attack.SetActive(true);
             
+            if (rechargeTimeCurrent <= 0)
+            {
+                Attack.transform.localPosition = attackingDirection * .7f;
+                Attack.SetActive(true);
+                attackTimeCurrent = attackTime;
+                rechargeTimeCurrent = rechargeTime;
+                Debug.Log("Firing");
+            }
+            
+        }
+        rechargeTimeCurrent -= Time.deltaTime;
+        if(attackTimeCurrent > 0)
+        {
+            attackTimeCurrent -= Time.deltaTime;
+        }
+        else
+        {
+            Attack.SetActive(false);
 
         }
 
