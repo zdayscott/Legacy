@@ -26,9 +26,9 @@ public class LegacyLauncher : MonoBehaviour
 
         yield return uwr.SendWebRequest();
 
-       // using (UnityWebRequest www = UnityWebRequest.Post(sendURL, form))
-      //  {
-       //     www.chunkedTransfer = false;
+        // using (UnityWebRequest www = UnityWebRequest.Post(sendURL, form))
+        //  {
+        //     www.chunkedTransfer = false;
         //    yield return www.SendWebRequest();
 
             if (uwr.isNetworkError || uwr.isHttpError)
@@ -39,7 +39,7 @@ public class LegacyLauncher : MonoBehaviour
             {
                 Debug.Log("Form upload complete! Recieved: " + uwr.downloadHandler.text);
             }
-       // }
+        // }
     }
 
     public void SendWeapon()

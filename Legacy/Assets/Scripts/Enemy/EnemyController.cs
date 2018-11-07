@@ -23,6 +23,11 @@ public class EnemyController : MonoBehaviour
     public float rechargeTime = .4f;
     private float rechargeTimeCurrent;
 
+
+
+
+    public float attackOffset = .7f;
+
     void Awake()
     {
         gameObject.tag = "Enemy";
@@ -68,10 +73,11 @@ public class EnemyController : MonoBehaviour
 
     void Attack()
     {
+        Debug.Log("Attack called!");
         attackingDirection = new Vector2(target.position.x - this.transform.position.x, target.position.y - this.transform.position.y).normalized;
         if (rechargeTimeCurrent <= 0)
         {
-            attackObject.transform.localPosition = attackingDirection * .7f;
+            attackObject.transform.position = transform.up * attackOffset;
             attackObject.SetActive(true);
             attackTimeCurrent = attackTime;
             rechargeTimeCurrent = rechargeTime;
@@ -89,7 +95,6 @@ public class EnemyController : MonoBehaviour
         else
         {
             attackObject.SetActive(false);
-
         }
     }
     void SeekTarget()
@@ -100,11 +105,13 @@ public class EnemyController : MonoBehaviour
 
     void LookAtPlayer()
     {
-        /*Vector3 vectorTarget = target.position - transform.position;
+        Vector3 vectorTarget = target.position - transform.position;
         float angle = (Mathf.Atan2(vectorTarget.y, vectorTarget.x) * Mathf.Rad2Deg) - 90;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 3);
-        */
-        transform.up = target.position - transform.position;
+        
+        //Vector2 lookDir = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
+
+        //transform.up = target.position - transform.position;
     }
 }
