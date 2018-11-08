@@ -71,8 +71,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1893655589787464}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.19, y: -6.95, z: 0.74}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: 1.42, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 4278944797145226}
   m_Father: {fileID: 224083954025766934}
@@ -172,6 +172,7 @@ MonoBehaviour:
   range: 7
   attackTime: 0.25
   rechargeTime: 0.4
+  attackOffset: 0.7
 --- !u!114 &114777060052814106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -292,6 +293,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.67, y: 6.39}
+  m_AnchoredPosition: {x: 8.27, y: 4.64}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}

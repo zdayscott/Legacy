@@ -26,7 +26,7 @@ public class EnemyController : MonoBehaviour
 
 
 
-    public float attackOffset = .7f;
+    public float attackOffset = 1f;
 
     void Awake()
     {
@@ -77,7 +77,7 @@ public class EnemyController : MonoBehaviour
         attackingDirection = new Vector2(target.position.x - this.transform.position.x, target.position.y - this.transform.position.y).normalized;
         if (rechargeTimeCurrent <= 0)
         {
-            attackObject.transform.position = transform.up * attackOffset;
+            //attackObject.transform.localPosition = attackObject.transform.up + attackOffset;
             attackObject.SetActive(true);
             attackTimeCurrent = attackTime;
             rechargeTimeCurrent = rechargeTime;

@@ -10,7 +10,7 @@ public class EnemyAttack : MonoBehaviour {
     {
         if (PlayerHit.gameObject.tag == "Player")
         {
-            PlayerHit.GetComponent<Player>().takeDamage(damage);
+            PlayerHit.GetComponent<Player>().TakeDamage(damage);
             Debug.Log("Enemy hit for damage");
         }
     }
