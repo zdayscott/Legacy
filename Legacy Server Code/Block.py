@@ -8,10 +8,11 @@ class Block(object):
     hash = None
     nonce = 0
     previousHash = 0x0
-    timestamp = datetime.datetime.now()
+    timestamp = datetime.datetime.now
 
     def __init__(self,data):
         self.data = data
+        self.timestamp = datetime.datetime.now()
 
     def hash(self):
         h = hashlib.sha256()
@@ -76,13 +77,13 @@ class Blockchain(object):
 #_______________________MAIN____________________________
 
 #initialize blockchain
-blockchain = Blockchain()
+#blockchain = Blockchain()
 
 # Mine 10 blocks
-for n in range(10):
-    blockchain.mine(Block("Block " + str(n + 1)))
+#for n in range(10):
+#    blockchain.mine(Block("Block " + str(n + 1)))
 
 # Print out each block in the blockchain
-while blockchain.head != None:
-    print(blockchain.head)
-    blockchain.head = blockchain.head.next
+#while blockchain.head != None:
+#    print(blockchain.head)
+#    blockchain.head = blockchain.head.next

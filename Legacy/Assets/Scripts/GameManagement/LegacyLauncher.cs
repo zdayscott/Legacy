@@ -52,4 +52,9 @@ public class LegacyLauncher : MonoBehaviour
         WWW www = new WWW(getURL);
         yield return www;
     }
+
+    public void GetDataS()
+    {
+        StartCoroutine(GetData());
+    }
 }
