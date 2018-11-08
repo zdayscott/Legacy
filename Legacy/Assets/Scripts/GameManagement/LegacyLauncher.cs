@@ -8,8 +8,8 @@ public class LegacyLauncher : MonoBehaviour
 {
     public WeaponSO weapon;
 
-    string sendURL = "http://127.0.0.1:5000/SendWeapon/GametoServer";
-    string getURL = "http://127.0.0.1:5000/PrintData";
+    string sendURL = "http://zdayscott.pythonanywhere.com/SendWeapon/GametoServer";
+    string getURL = "http://zdayscott.pythonanywhere.com/PrintData";
 
     IEnumerator SendData()
     {
