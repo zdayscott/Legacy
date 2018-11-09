@@ -13,7 +13,7 @@ public class LegacyLauncher : MonoBehaviour
 
     IEnumerator SendData()
     {
-        WWWForm form = new WWWForm();
+        //WWWForm form = new WWWForm();
         string jsonStr = JsonUtility.ToJson(weapon, true);
         //form.AddField("x", jsonStr);
 
