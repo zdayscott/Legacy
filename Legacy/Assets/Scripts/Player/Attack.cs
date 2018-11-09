@@ -7,14 +7,9 @@ public class Attack : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enemy" && gameObject.tag == "Enemy")
+        if(collision.tag == "Enemy")
         {
             collision.GetComponent<EnemyStats>().TakeDamage(damage);
-        }
-
-        if(collision.gameObject.tag == "Player")
-        {
-            collision.GetComponent<Player>().TakeDamage(damage);
         }
     }
 }
