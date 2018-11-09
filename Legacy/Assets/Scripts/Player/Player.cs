@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
-    [SerializeField]
+    
     public float maxHealth=100f;
-    public float health;
+    private float currentHealth;
     public Slider healthbar = null;
 	// Use this for initialization
 	void Start ()
     {
-        health = maxHealth;
+        currentHealth = maxHealth;
 
         if(healthbar == null)
         {
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         Debug.Log("player took damage");
-        health = health - damage;
-        healthbar.value = Mathf.Max(0,health);
+        currentHealth = currentHealth - damage;
+        healthbar.value = Mathf.Max(0,currentHealth);
     }
 }
