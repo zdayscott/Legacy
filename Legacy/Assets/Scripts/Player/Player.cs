@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
     [SerializeField]
     public float maxHealth=100f;
-    private float health;
+    public float health;
     public Slider healthbar = null;
 	// Use this for initialization
 	void Start ()
