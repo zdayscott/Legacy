@@ -73,7 +73,7 @@ public class EnemyController : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Attack called!");
+        //Debug.Log("Attack called!");
         attackingDirection = new Vector2(target.position.x - this.transform.position.x, target.position.y - this.transform.position.y).normalized;
         if (rechargeTimeCurrent <= 0)
         {

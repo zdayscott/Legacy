@@ -7,8 +7,11 @@ public class Attack : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("OnTrigger");
+        Debug.Log(this.gameObject.GetComponentInParent<GameObject>().tag);
         if(collision.gameObject.tag == "Enemy" && this.gameObject.GetComponentInParent<GameObject>().tag == "Player")
         {
+            Debug.Log("Player Attacking Enemy!");
             collision.GetComponent<EnemyStats>().TakeDamage(damage);
         }
 
@@ -16,5 +19,10 @@ public class Attack : MonoBehaviour {
         {
             collision.GetComponent<Player>().TakeDamage(damage);
         }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        Debug.Log("Trigger Stay");
     }
 }

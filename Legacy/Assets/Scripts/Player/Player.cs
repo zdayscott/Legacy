@@ -15,7 +15,7 @@ public class Player : MonoBehaviour {
 
         if(healthbar == null)
         {
-            Debug.Log("Finding GO");
+            //Debug.Log("Finding GO");
             healthbar = GameObject.FindGameObjectWithTag("PlayerHealthBar").GetComponent<Slider>(); 
         }
         healthbar.maxValue = maxHealth;

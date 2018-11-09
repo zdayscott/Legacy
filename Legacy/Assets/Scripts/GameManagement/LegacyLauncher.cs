@@ -49,8 +49,23 @@ public class LegacyLauncher : MonoBehaviour
 
     IEnumerator GetData()
     {
-        WWW www = new WWW(getURL);
-        yield return www;
+        using (UnityWebRequest www = UnityWebRequest.Get(getURL))
+        {
+            yield return www.Send();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                // Show results as text
+                Debug.Log(www.downloadHandler.text);
+
+                // Or retrieve results as binary data
+                byte[] results = www.downloadHandler.data;
+            }
+        }
     }
 
     public void GetDataS()

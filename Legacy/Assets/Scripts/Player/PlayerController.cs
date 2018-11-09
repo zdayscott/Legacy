@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour {
             attackObj.SetActive(true);
             attackTimeCurrent = attackTime;
             rechargeTimeCurrent = rechargeTime;
-            Debug.Log("Firing");
+            //Debug.Log("Firing");
         }
     }
 
