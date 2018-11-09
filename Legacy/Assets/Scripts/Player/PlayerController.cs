@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
         MovePlayer();
 
@@ -48,13 +48,13 @@ public class PlayerController : MonoBehaviour {
 
     void MovePlayer()
     {
-        Vector2 move;
+        //Get player input on horizontal and vertical direction
         float horz = Input.GetAxisRaw("Horizontal");
         float vert = Input.GetAxisRaw("Vertical");
-        move = new Vector2(horz, vert).normalized;
 
-        rb.transform.Translate(move * speed * Time.deltaTime);
-
+        var move = new Vector3(horz, vert, 0).normalized;
+        
+        rb.MovePosition(new Vector2 ((transform.position.x + move.x * speed * Time.deltaTime), (transform.position.y + move.y * speed * Time.deltaTime)));
         /*if (move.x != 0 || move.y != 0)
          {
              attackingDirection = move;
