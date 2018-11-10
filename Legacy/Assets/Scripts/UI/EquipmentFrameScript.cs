@@ -13,10 +13,7 @@ public class EquipmentFrameScript : MonoBehaviour
     }
     public void CloseMenu()
     {
-
         EquipmentPanel.SetActive(false);
-
     }
-
 
 }
