@@ -1546,6 +1546,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EquipmentPanel: {fileID: 1454290851}
+  EquipmentButtonOpen: {fileID: 0}
+  EquipmentButtonClose: {fileID: 0}
 --- !u!1 &1142537063
 GameObject:
   m_ObjectHideFlags: 0
@@ -2029,6 +2031,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EquipmentPanel: {fileID: 1454290851}
+  EquipmentButtonOpen: {fileID: 0}
+  EquipmentButtonClose: {fileID: 0}
 --- !u!1 &1454290851
 GameObject:
   m_ObjectHideFlags: 0
