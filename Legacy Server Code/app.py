@@ -1,5 +1,6 @@
 from Block import Blockchain, Block
 from flask import Flask, jsonify, request
+import json
 app = Flask(__name__)
 
 blockchain = Blockchain()
@@ -20,13 +21,43 @@ def GametoServer():
 
     # Create a new block
     blockchain.mine(Block(values))
+
     return 'Success'
 
 @app.route("/PrintData", methods = ['GET'])
 def PrintChain():
     # Print out each block in the blockchain
-    inum = blockchain.head
-    while inum != None:
-        print(inum)
-        inum = inum.next
-    return 'True'
+    #iter = blockchain.head
+    #response = ''
+    #while iter != None:
+        #print(inum)
+        # response = response + iter
+        # iter = iter.next
+    response = {
+        'Message' : "You did it!",
+        'Block' : "This Block"
+    }
+    return jsonify(response), 200
+
+@app.route("/GetChain", methods = ['GET'])
+def GetChain():
+    itr = blockchain.head
+    toGameJsn = {}
+    toGameJsn[itr.blockNo] = {
+        'BlockNumber' : itr.blockNo,
+        'Hash' : str(itr.hash()),
+        'Previous Hash' : itr.previousHash,
+        'Data' : itr.data
+    }
+    itr = itr.next
+    while itr != None:
+        toGameJsn[itr.blockNo] = {
+            'BlockNumber' : itr.blockNo,
+            'Hash' : str(itr.hash()),
+            'Previous Hash' : itr.previousHash,
+            'Data' : itr.data
+        }
+
+        itr = itr.next
+
+    return jsonify(json.dumps(toGameJsn)), 200
