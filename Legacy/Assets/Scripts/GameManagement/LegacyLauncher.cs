@@ -9,7 +9,7 @@ public class LegacyLauncher : MonoBehaviour
     public WeaponSO weapon;
 
     string sendURL = "http://zdayscott.pythonanywhere.com/SendWeapon/GametoServer";
-    string getURL = "http://zdayscott.pythonanywhere.com/PrintData";
+    string getURL = "http://zdayscott.pythonanywhere.com/GetChain";
 
     IEnumerator SendData()
     {
@@ -51,7 +51,7 @@ public class LegacyLauncher : MonoBehaviour
     {
         using (UnityWebRequest www = UnityWebRequest.Get(getURL))
         {
-            yield return www.Send();
+            yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)
             {
