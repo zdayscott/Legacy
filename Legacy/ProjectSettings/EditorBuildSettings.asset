@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/SaveSelect.unity
     guid: 678b12b0b3cb37b44af57c8d0a6d7159
   - enabled: 1
-    path: Assets/Scenes/Zachstestscene.unity
-    guid: 3541f068b04dad246929f3fcfc660f1c
+    path: Assets/Scenes/BeauTestScene.unity
+    guid: a1932926afc9f134abf2357a8a0d7be5
   - enabled: 1
-    path: Assets/Scenes/UI/UI.unity
-    guid: 7ed7cb1bb9d328f4bb8e463c44d8be8f
+    path: Assets/Scenes/UI/Death.unity
+    guid: 52af438ce0e169948b1dbb8ddf1cef39
   m_configObjects: {}
