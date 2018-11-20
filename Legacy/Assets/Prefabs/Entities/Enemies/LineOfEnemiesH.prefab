@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4795543517000044}
   m_Layer: 0
-  m_Name: LineOfEnemies
+  m_Name: LineOfEnemiesH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

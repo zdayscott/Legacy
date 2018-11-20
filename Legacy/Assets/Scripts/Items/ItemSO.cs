@@ -6,6 +6,6 @@ using UnityEngine;
 public class ItemSO : ScriptableObject
 {
     new public string name = "New Item";
-    public string discription;
+    public string discription = "This is an item";
     public Sprite icon = null;
 }

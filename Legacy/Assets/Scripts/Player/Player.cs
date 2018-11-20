@@ -5,10 +5,20 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
-    [SerializeField]
-    public float maxHealth=100f;
-    public float health;
+    [Header("Health")]
+    public int maxHealth = 100;
+    private int health;
     public Slider healthbar = null;
+
+    private Inventory inventory;
+
+    [Header("Stats")]
+    public float defense = 1f;
+    public float attackDamage;
+    public float attackSpeed;
+    public float movementSpeed;
+
+
 	// Use this for initialization
 	void Start ()
     {
