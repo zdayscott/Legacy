@@ -183,8 +183,8 @@ MonoBehaviour:
   closeEnough: 0.3
   range: 7
   attackTime: 0.25
-  rechargeTime: 0.8
-  castTime: 0.5
+  rechargeTime: 1
+  castTime: 0.7
   attackOffset: 0.7
   idleColor: {r: 1, g: 0.20392159, b: 0.20392159, a: 1}
   castingColor: {r: 1, g: 0.28773582, b: 0.8610866, a: 1}
