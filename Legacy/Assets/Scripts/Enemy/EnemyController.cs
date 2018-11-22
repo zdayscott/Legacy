@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    enum states { idle, tracking, attacking}
+    enum states {IDLE, WALKING, ATTACKING };
     private states state;
 
     public float speed = 5f;
@@ -30,9 +30,12 @@ public class EnemyController : MonoBehaviour
     public float castTime = .2f;
     private float castTimeCurrent;
 
-
-
+    // Distance attack collider will spawn from enemy
     public float attackOffset = 1f;
+
+    //Colors
+    public Color idleColor;
+    public Color castingColor;
 
     void Awake()
     {
@@ -48,25 +51,39 @@ public class EnemyController : MonoBehaviour
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
         }
-        state = idle;        
+        state = states.IDLE;        
     }
 
     // Update is called once per frame
     void Update()
     {
+        Actions();
+        UpdateCooldowns();
+
+        if(state == states.IDLE)
+        {
+            GetComponent<SpriteRenderer>().color = idleColor;
+        }
+        else if(state == states.ATTACKING)
+        {
+            GetComponent<SpriteRenderer>().color = castingColor;
+        }
+    }
+
+    void Actions()
+    {
         float offset = 1.95f;
         float distanceToTarget = CalculateDistance(target, this.transform);
 
-        if (distanceToTarget - offset <= closeEnough)
+        if ((distanceToTarget - offset <= closeEnough) || (state == states.ATTACKING))
         {
             Attack();
-            UpdateCooldowns();
         }
-        else if (distanceToTarget <= range && state != attacking)
+        else if (distanceToTarget <= range && state != states.ATTACKING)
         {
             SeekTarget();
         }
-        else if(state != attacking)
+        else if(state != states.ATTACKING)
         {
             LookAtPlayer();
         }
@@ -79,20 +96,24 @@ public class EnemyController : MonoBehaviour
 
     void Attack()
     {
-        //Debug.Log("Attack called!");
         attackingDirection = new Vector2(target.position.x - this.transform.position.x, target.position.y - this.transform.position.y).normalized;
-        if (rechargeTimeCurrent <= 0)
+        if (rechargeTimeCurrent <= 0 || state == states.ATTACKING)
         {
-            state = attacking;
-            castTimeCurrent = castTime;
+            if(state != states.ATTACKING)
+            {
+                state = states.ATTACKING;
+                castTimeCurrent = castTime;
+            }
+
             if(castTimeCurrent <= 0)
             {
                 //attackObject.transform.localPosition = attackObject.transform.up + attackOffset;
                 attackObject.SetActive(true);
                 attackTimeCurrent = attackTime;
                 rechargeTimeCurrent = rechargeTime;
+                state = states.IDLE;
             }
-            castTimecurrent -= Time.deltaTime;
+            castTimeCurrent -= Time.deltaTime;
         } 
     }
 

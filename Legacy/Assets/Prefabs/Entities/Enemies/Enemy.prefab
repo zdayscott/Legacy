@@ -183,8 +183,11 @@ MonoBehaviour:
   closeEnough: 0.3
   range: 7
   attackTime: 0.25
-  rechargeTime: 0.4
+  rechargeTime: 0.8
+  castTime: 0.5
   attackOffset: 0.7
+  idleColor: {r: 1, g: 0.20392159, b: 0.20392159, a: 1}
+  castingColor: {r: 1, g: 0.28773582, b: 0.8610866, a: 1}
 --- !u!212 &212384338568141626
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -293,6 +296,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.191586, y: 9.082079}
+  m_AnchoredPosition: {x: 0.6000061, y: -1.699997}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
