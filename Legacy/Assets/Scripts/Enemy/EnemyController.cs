@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    enum states { idle, tracking, attacking}
+    private states state;
+
     public float speed = 5f;
     public Transform target;
     float timeCount = 0.0f;
@@ -23,6 +26,9 @@ public class EnemyController : MonoBehaviour
     public float rechargeTime = .4f;
     private float rechargeTimeCurrent;
 
+    // Cast Time
+    public float castTime = .2f;
+    private float castTimeCurrent;
 
 
 
@@ -42,7 +48,7 @@ public class EnemyController : MonoBehaviour
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
         }
-        
+        state = idle;        
     }
 
     // Update is called once per frame
@@ -53,14 +59,14 @@ public class EnemyController : MonoBehaviour
 
         if (distanceToTarget - offset <= closeEnough)
         {
-            Attack();   //------------------------TODO----------------------------------
+            Attack();
             UpdateCooldowns();
         }
-        else if (distanceToTarget <= range)
+        else if (distanceToTarget <= range && state != attacking)
         {
             SeekTarget();
         }
-        else 
+        else if(state != attacking)
         {
             LookAtPlayer();
         }
@@ -77,12 +83,17 @@ public class EnemyController : MonoBehaviour
         attackingDirection = new Vector2(target.position.x - this.transform.position.x, target.position.y - this.transform.position.y).normalized;
         if (rechargeTimeCurrent <= 0)
         {
-            //attackObject.transform.localPosition = attackObject.transform.up + attackOffset;
-            attackObject.SetActive(true);
-            attackTimeCurrent = attackTime;
-            rechargeTimeCurrent = rechargeTime;
-        }
-        
+            state = attacking;
+            castTimeCurrent = castTime;
+            if(castTimeCurrent <= 0)
+            {
+                //attackObject.transform.localPosition = attackObject.transform.up + attackOffset;
+                attackObject.SetActive(true);
+                attackTimeCurrent = attackTime;
+                rechargeTimeCurrent = rechargeTime;
+            }
+            castTimecurrent -= Time.deltaTime;
+        } 
     }
 
     void UpdateCooldowns()
