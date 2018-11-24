@@ -7,6 +7,8 @@ public class EnemyStats : MonoBehaviour {
     public float maxHeath = 10;
     private float currentHealth;
 
+    public int expDroped = 5;
+
 
 	// Use this for initialization
 	void Start ()
@@ -19,12 +21,16 @@ public class EnemyStats : MonoBehaviour {
 		
 	}
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, GameObject attacker)
     {
         currentHealth -= amount;
 
         if(currentHealth <= 0)
         {
+            if(attacker.tag == "Player")
+            {
+                attacker.GetComponent<Player>().ExpGain(expDroped);
+            }
             Die();
         }
     }

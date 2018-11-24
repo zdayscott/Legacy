@@ -8,6 +8,7 @@ TagManager:
   - PlayerHealthBar
   - EquipmentPanel
   - Game Manager
+  - ExperienceBar
   layers:
   - Default
   - TransparentFX

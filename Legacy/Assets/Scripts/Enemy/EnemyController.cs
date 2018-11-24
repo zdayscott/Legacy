@@ -9,8 +9,6 @@ public class EnemyController : MonoBehaviour
 
     public float speed = 5f;
     public Transform target;
-    float timeCount = 0.0f;
-    Rigidbody2D rb;
 
     public Vector2 attackingDirection = new Vector2(1, 0);
     public GameObject attackObject;
@@ -45,8 +43,6 @@ public class EnemyController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-
         if (target == null)
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -107,7 +103,6 @@ public class EnemyController : MonoBehaviour
 
             if(castTimeCurrent <= 0)
             {
-                //attackObject.transform.localPosition = attackObject.transform.up + attackOffset;
                 attackObject.SetActive(true);
                 attackTimeCurrent = attackTime;
                 rechargeTimeCurrent = rechargeTime;
@@ -141,9 +136,5 @@ public class EnemyController : MonoBehaviour
         float angle = (Mathf.Atan2(vectorTarget.y, vectorTarget.x) * Mathf.Rad2Deg) - 90;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 3);
-        
-        //Vector2 lookDir = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
-
-        //transform.up = target.position - transform.position;
     }
 }

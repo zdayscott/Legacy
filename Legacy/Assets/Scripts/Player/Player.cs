@@ -18,6 +18,16 @@ public class Player : MonoBehaviour {
     public float attackSpeed;
     public float movementSpeed;
 
+    [Header("Experience and Leveling")]
+    private int experience;
+    private int level;
+    public Slider experienceBar = null;
+    public Text expText;
+
+    [SerializeField]
+    // Experience needed to get to next level
+    private int[] expLevels;
+
 
 	// Use this for initialization
 	void Start ()
@@ -31,6 +41,15 @@ public class Player : MonoBehaviour {
         }
         healthbar.maxValue = maxHealth;
         healthbar.minValue = 0f;
+
+        if(experienceBar == null)
+        {
+            experienceBar = GameObject.FindGameObjectWithTag("ExperienceBar").GetComponent<Slider>();
+        }
+        experienceBar.maxValue = expLevels[level];
+        experienceBar.minValue = 0;
+        experienceBar.value = experience;
+        expText.text = experience + "/" + expLevels[level];
     }
 	
 	// Update is called once per frame
@@ -49,8 +68,19 @@ public class Player : MonoBehaviour {
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("player took damage");
         health = health - damage;
         healthbar.value = Mathf.Max(0,health);
+    }
+
+    public void ExpGain(int exp)
+    {
+        experience += exp;
+        if(experience >= expLevels[level])
+        {
+            experience -= expLevels[level];
+            level++;
+            experienceBar.maxValue = expLevels[level];
+        }
+        experienceBar.value = experience;
     }
 }

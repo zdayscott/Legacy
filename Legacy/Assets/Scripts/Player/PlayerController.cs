@@ -54,12 +54,6 @@ public class PlayerController : MonoBehaviour {
         move = new Vector2(horz, vert).normalized;
 
         rb.transform.Translate(move * speed * Time.deltaTime);
-
-        /*if (move.x != 0 || move.y != 0)
-         {
-             attackingDirection = move;
-         }*/
-
     }
 
     void Attack()
@@ -74,7 +68,6 @@ public class PlayerController : MonoBehaviour {
             attackObj.SetActive(true);
             attackTimeCurrent = attackTime;
             rechargeTimeCurrent = rechargeTime;
-            //Debug.Log("Firing");
         }
     }
 
