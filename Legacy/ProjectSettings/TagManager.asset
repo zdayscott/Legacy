@@ -9,6 +9,8 @@ TagManager:
   - EquipmentPanel
   - Game Manager
   - ExperienceBar
+  - RoomSpawn
+  - Rooms
   layers:
   - Default
   - TransparentFX
