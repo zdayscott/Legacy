@@ -55,8 +55,8 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        
-	}
+        expText.text = experience + "/" + expLevels[level];
+    }
 
     private void FixedUpdate()
     {
