@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 30
+  expDroped: 5
 --- !u!114 &114673447154933464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,7 +185,10 @@ MonoBehaviour:
   range: 15
   attackTime: 0.25
   rechargeTime: 0.4
-  attackOffset: 0.7
+  castTime: 0.2
+  attackOffset: 0.11
+  idleColor: {r: 1, g: 0.20392159, b: 0.20392159, a: 1}
+  castingColor: {r: 0.7264151, g: 0.07195621, b: 0.5936666, a: 1}
 --- !u!212 &212085727412158160
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -293,6 +297,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -51.647984, y: 29.81992}
+  m_AnchoredPosition: {x: 50.7, y: 112}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+  player: {fileID: 1658272800210774}
 --- !u!114 &114226793338457288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,6 +185,9 @@ MonoBehaviour:
   attackDamage: 0
   attackSpeed: 0
   movementSpeed: 0
+  experienceBar: {fileID: 0}
+  expText: {fileID: 0}
+  expLevels: 32000000c800000090010000ee020000dc050000d0070000b80b00009411000070170000401f0000
 --- !u!114 &114858605515464530
 MonoBehaviour:
   m_ObjectHideFlags: 1
