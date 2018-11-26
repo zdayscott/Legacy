@@ -58,18 +58,21 @@ public class Player : MonoBehaviour {
         expText.text = experience + "/" + expLevels[level];
     }
 
-    private void FixedUpdate()
-    {
-        if (health == 0)
-        {
-        SceneManager.LoadScene(3);
-        }
-    } 
-
     public void TakeDamage(int damage)
     {
         health = health - damage;
         healthbar.value = Mathf.Max(0,health);
+        if(health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        // Do die stuff (eg. clear inventory, delete save send weapon to server)
+        // Call next scene or next function in gameover sequence
+        SceneManager.LoadScene(3);
     }
 
     public void ExpGain(int exp)
