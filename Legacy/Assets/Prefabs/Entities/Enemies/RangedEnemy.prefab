@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
 --- !u!114 &114269903402645406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,9 +138,9 @@ MonoBehaviour:
   projectile: {fileID: 1314794622552364, guid: 3c748b70b1a5f0347b99f6d306b27f74, type: 2}
   firePosition: {fileID: 4717640106915210}
   closeEnough: 0.25
-  range: 7
+  range: 10
   attackTime: 0.25
-  rechargeTime: 0.4
+  rechargeTime: 1
   attackOffset: 1
 --- !u!212 &212492179275304068
 SpriteRenderer:
