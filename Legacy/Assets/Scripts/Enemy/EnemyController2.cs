@@ -21,7 +21,7 @@ public class EnemyController2 : MonoBehaviour
     private float attackTimeCurrent;
 
     //Time between attacks
-    public float rechargeTime = .5f;
+    public float rechargeTime;
     private float rechargeTimeCurrent;
 
     public float attackOffset = 1f;
@@ -41,6 +41,7 @@ public class EnemyController2 : MonoBehaviour
             target = GameObject.FindGameObjectWithTag("Player").transform;
         }
 
+        rechargeTime = Random.Range(0.2f, 0.7f);
     }
 
     // Update is called once per frame

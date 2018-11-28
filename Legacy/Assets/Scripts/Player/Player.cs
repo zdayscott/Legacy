@@ -49,13 +49,13 @@ public class Player : MonoBehaviour {
         experienceBar.maxValue = expLevels[level];
         experienceBar.minValue = 0;
         experienceBar.value = experience;
-        expText.text = experience + "/" + expLevels[level];
+        //expText.text = experience + "/" + expLevels[level];
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        expText.text = experience + "/" + expLevels[level];
+        //expText.text = experience + "/" + expLevels[level];
     }
 
     public void TakeDamage(int damage)
