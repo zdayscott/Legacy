@@ -10,7 +10,6 @@ public class InventoryUI : MonoBehaviour {
 	void Start () {
         inventory = Inventory.instance;
         inventory.onItemChangedCallback += UpdateUi;
-        Debug.Log("inventoryUI");
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 	}
 	
