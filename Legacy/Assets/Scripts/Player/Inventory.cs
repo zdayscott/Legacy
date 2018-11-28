@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour {
         if(items.Count < space)
         {
             items.Add(item);
-
+            Debug.Log("inventory callback: " + onItemChangedCallback.ToString());
             // CallBack Triggered
             if (onItemChangedCallback != null)
             {
