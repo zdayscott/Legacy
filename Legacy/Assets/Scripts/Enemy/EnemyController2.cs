@@ -41,7 +41,7 @@ public class EnemyController2 : MonoBehaviour
             target = GameObject.FindGameObjectWithTag("Player").transform;
         }
 
-        rechargeTime = Random.Range(0.2f, 0.7f);
+        rechargeTime = Random.Range(0.6f, 1.0f);
     }
 
     // Update is called once per frame
@@ -74,7 +74,6 @@ public class EnemyController2 : MonoBehaviour
     {
         if (rechargeTimeCurrent <= 0)
         {
-            // attackObject.SetActive(true);
             GameObject bullet = Instantiate(projectile, firePosition.position, firePosition.rotation) as GameObject;
             attackTimeCurrent = attackTime;
             rechargeTimeCurrent = rechargeTime;
@@ -88,10 +87,6 @@ public class EnemyController2 : MonoBehaviour
         {
             attackTimeCurrent -= Time.deltaTime;
         }
-        else
-        {
-            //attackObject.SetActive(false);
-        }
     }
 
     void RunAway()
@@ -104,6 +99,6 @@ public class EnemyController2 : MonoBehaviour
         Vector3 vectorTarget = target.position - transform.position;
         float angle = (Mathf.Atan2(vectorTarget.y, vectorTarget.x) * Mathf.Rad2Deg) - 90;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 3);
+        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 20);
     }
 }
