@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 58145345017837502}
   m_Layer: 0
   m_Name: Projectile 1
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,6 +94,7 @@ MonoBehaviour:
   canShoot: 0
   timeAlive: 6
   target: {fileID: 0}
+  fire: {fileID: 1282786643801430, guid: 3f91bdc48a776fe4aa946c7c9719f433, type: 2}
 --- !u!212 &212988365308051790
 SpriteRenderer:
   m_ObjectHideFlags: 1
