@@ -13,6 +13,8 @@ public class Projectile : MonoBehaviour {
     public Transform target;
     private Vector2 targetLocation;
 
+    public GameObject fire;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -41,11 +43,15 @@ public class Projectile : MonoBehaviour {
     {
         if (collide.gameObject.tag == "Player")
         {
-            Debug.Log("Player shot");
             collide.GetComponent<Player>().TakeDamage(15);
             Destroy(gameObject);
         }
-        else if (collide.gameObject.tag != "Enemy")
+        else if (collide.gameObject.tag != "Enemy" && collide.gameObject.tag == "Projectile")
+        {
+            GameObject smallFire = Instantiate(fire, gameObject.transform.position, transform.rotation) as GameObject;
+            Destroy(gameObject);
+        }
+        else
         {
             Destroy(gameObject);
         }
