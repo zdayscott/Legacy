@@ -6,7 +6,7 @@ public class Bomb : MonoBehaviour {
     // GameObject used for fire sprite after bomb explodes
     public GameObject fire;
     public float timer;
-    public float radius = 5.0f;
+    public float radius = 1.5f;
     public float power = 5.0f;
     public int damage = 30;
 
