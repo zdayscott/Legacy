@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
 
     public Vector2 attackingDirection = new Vector2(1, 0);
     public GameObject attackObject;
+    public GameObject bomb;
 
     public float closeEnough = .25f;
     public float range = 7f;
@@ -23,6 +24,10 @@ public class EnemyController : MonoBehaviour
     //Time between attacks
     public float rechargeTime = .4f;
     private float rechargeTimeCurrent;
+
+    // Time it takes for next bomb to be ready
+    public float bombDelay = 3f;
+    private float bombRechargeRate = 0f;
 
     // Cast Time
     public float castTime = .2f;
@@ -78,6 +83,10 @@ public class EnemyController : MonoBehaviour
         else if (distanceToTarget <= range && state != states.ATTACKING)
         {
             SeekTarget();
+            if (bombRechargeRate <= 0)
+            {
+                ThrowBomb();
+            }
         }
         else if(state != states.ATTACKING)
         {
@@ -112,9 +121,22 @@ public class EnemyController : MonoBehaviour
         } 
     }
 
+    void ThrowBomb()
+    {
+        bombRechargeRate = bombDelay;
+
+        GameObject spareBomb = Instantiate(bomb, gameObject.transform.position, transform.rotation) as GameObject;
+
+        // Get rigidbody and apply a force to bomb
+        Rigidbody2D rigidbody = spareBomb.GetComponent<Rigidbody2D>();
+        rigidbody.AddForce(transform.up * 9, ForceMode2D.Impulse);
+    }
+
     void UpdateCooldowns()
     {
         rechargeTimeCurrent -= Time.deltaTime;
+        bombRechargeRate -= Time.deltaTime;
+
         if (attackTimeCurrent > 0)
         {
             attackTimeCurrent -= Time.deltaTime;
