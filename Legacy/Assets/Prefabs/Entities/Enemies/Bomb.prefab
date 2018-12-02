@@ -55,7 +55,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.65
+  m_LinearDrag: 0.75
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -91,9 +91,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fire: {fileID: 1282786643801430, guid: 3f91bdc48a776fe4aa946c7c9719f433, type: 2}
   timer: 4
-  radius: 1.5
+  radius: 3
   power: 10
-  damage: 30
+  damage: 20
   StartColor: {r: 0, g: 0, b: 0, a: 1}
   endColor: {r: 1, g: 0, b: 0, a: 1}
   bombMaterial: {fileID: 2100000, guid: a00013af81304728b2be1f4309ee2433, type: 2}
