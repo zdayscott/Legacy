@@ -28,12 +28,13 @@ public class Inventory : MonoBehaviour {
 
     public int space = 12;
 
+    public GameObject inGameitemPrefab;
+
     public bool Add(ItemSO item)
     {
         if(items.Count < space)
         {
             items.Add(item);
-            Debug.Log("inventory callback: " + onItemChangedCallback.ToString());
             // CallBack Triggered
             if (onItemChangedCallback != null)
             {

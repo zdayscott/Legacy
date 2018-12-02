@@ -80,8 +80,8 @@ public class PlayerController : MonoBehaviour {
         }
         else
         {
+            //attackObj.AddComponent<Attack>().AttackEnded();
             attackObj.SetActive(false);
-
         }
     }
 }

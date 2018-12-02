@@ -10,9 +10,12 @@ public class InventorySlot : MonoBehaviour
     public Button removeButton;
 
     ItemSO item;
+
+    public float dropOffset = 100f;
+
+
     public void AddItem(ItemSO newItem)
     {
-        Debug.Log("Updating Slot");
         item = newItem;
         icon.sprite = item.icon;
         icon.gameObject.SetActive(true);
@@ -29,8 +32,16 @@ public class InventorySlot : MonoBehaviour
 
     public void OnRemoveButton()
     {
+        ItemSO dropItem = item;
         Inventory.instance.Remove(item);
         ClearSlot();
+        Transform itemDropLoc = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().itemDropLoc;
+
+        Vector3 itemDropPos = itemDropLoc.position;
+        Quaternion itemDropRot = itemDropLoc.rotation;
+
+        GameObject droppedItem = Instantiate(Inventory.instance.inGameitemPrefab, itemDropPos, itemDropRot);
+        droppedItem.GetComponent<ItemPickup>().item = dropItem;
     }
 
     public void UseItem()
