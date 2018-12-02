@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
     public float attackDamage;
     public float attackSpeed;
     public float movementSpeed;
+    public Text healthText;
 
     [Header("Experience and Leveling")]
     private int experience;
@@ -53,12 +54,14 @@ public class Player : MonoBehaviour {
         experienceBar.minValue = 0;
         experienceBar.value = experience;
         expText.text = experience + "/" + expLevels[level];
+        healthText.text = health.ToString();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
         expText.text = experience + "/" + expLevels[level];
+        healthText.text = health.ToString();
     }
 
     public void TakeDamage(int damage)
