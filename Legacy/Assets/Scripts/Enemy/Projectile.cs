@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour {
     private Rigidbody2D rb;
     public bool canShoot = false;
     public float timeAlive = 6.0f;
-    public Transform target;
+    //public Transform target;
     private Vector2 targetLocation;
 
     public GameObject fire;
@@ -19,8 +19,6 @@ public class Projectile : MonoBehaviour {
 	void Start ()
     {
         StartCoroutine(DestroyProjectile());
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        rb.velocity = rb.transform.up * speed;
     }
 	
     public void updateShoot()
