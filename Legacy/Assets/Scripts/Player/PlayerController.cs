@@ -88,9 +88,13 @@ public class PlayerController : MonoBehaviour {
 
         if (nextStarReady <= 0)
         {
+            // Instantiate the ninja star prefab and throw in the direction mouse is facing
             GameObject star = Instantiate(ninjaStar, transform.position + attackDir + offset, gameObject.transform.rotation) as GameObject;
             Rigidbody2D rbStar = star.GetComponent<Rigidbody2D>();
             rbStar.AddForce(attackDir * speed, ForceMode2D.Impulse);
+
+            // Set string to player to help with detecting collisions
+            star.GetComponent<Projectile>().ShotFiredBy("Player");
             nextStarReady = rechargeTime;
         }
     }

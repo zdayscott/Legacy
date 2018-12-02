@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour {
 
 
     public float speed = 5;
-    public float damage = 15;
+    public int damage = 15;
     private Rigidbody2D rb;
     public bool canShoot = false;
     public float timeAlive = 6.0f;
@@ -14,6 +14,8 @@ public class Projectile : MonoBehaviour {
     private Vector2 targetLocation;
 
     public GameObject fire;
+
+    private string shooter;
 
 	// Use this for initialization
 	void Start ()
@@ -31,6 +33,11 @@ public class Projectile : MonoBehaviour {
     {
     }
 
+    public void ShotFiredBy(string s)
+    {
+        shooter = s;
+    }
+
     IEnumerator DestroyProjectile()
     {
         yield return new WaitForSeconds(timeAlive);
@@ -39,15 +46,24 @@ public class Projectile : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collide)
     {
-        if (collide.gameObject.tag == "Player")
+        if (collide.gameObject.tag == "Player" && shooter == "Enemy")
         {
             collide.GetComponent<Player>().TakeDamage(15);
             Destroy(gameObject);
         }
-        else if (collide.gameObject.tag != "Enemy" && collide.gameObject.tag == "Projectile")
+        else if (collide.gameObject.tag == "Projectile")
         {
             GameObject smallFire = Instantiate(fire, gameObject.transform.position, transform.rotation) as GameObject;
             Destroy(gameObject);
+        }
+        else if (collide.gameObject.tag == "Enemy" && shooter == "Player")
+        {
+            collide.GetComponent<EnemyStats>().TakeDamage(damage, fire);
+            Destroy(gameObject);
+        }
+        else if (collide.gameObject.tag == "Enemy" && shooter == "Enemy" || collide.gameObject.tag == "Player" && shooter == "Player")
+        {
+ 
         }
         else
         {

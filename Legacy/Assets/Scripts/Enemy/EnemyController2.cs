@@ -79,6 +79,7 @@ public class EnemyController2 : MonoBehaviour
             rb2.AddForce(transform.up * speed, ForceMode2D.Impulse);
             attackTimeCurrent = attackTime;
             rechargeTimeCurrent = rechargeTime;
+            bullet.GetComponent<Projectile>().ShotFiredBy("Enemy");
         }
     }
 
