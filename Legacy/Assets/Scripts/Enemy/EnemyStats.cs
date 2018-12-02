@@ -27,16 +27,13 @@ public class EnemyStats : MonoBehaviour {
 
         if(currentHealth <= 0)
         {
-            if(attacker.tag == "Player")
-            {
-                attacker.GetComponent<Player>().ExpGain(expDroped);
-            }
             Die();
         }
     }
 
     void Die()
     {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().ExpGain(expDroped);
         Destroy(this.gameObject);
     }
 }
