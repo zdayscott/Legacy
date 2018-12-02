@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
 
     public float speed = 5f;
     public Transform target;
+    private float visionRange = 12f;
 
     public Vector2 attackingDirection = new Vector2(1, 0);
     public GameObject attackObject;
@@ -83,13 +84,13 @@ public class EnemyController : MonoBehaviour
         else if (distanceToTarget <= range && state != states.ATTACKING)
         {
             SeekTarget();
-            if (bombRechargeRate <= 0)
+            if (LineOfSight() && bombRechargeRate <= 0)
             {
                 ThrowBomb();
             }
         }
-        else if(state != states.ATTACKING)
-        {
+        else if(state != states.ATTACKING && distanceToTarget <= visionRange)
+        { 
             LookAtPlayer();
         }
     }
@@ -129,7 +130,26 @@ public class EnemyController : MonoBehaviour
 
         // Get rigidbody and apply a force to bomb
         Rigidbody2D rigidbody = spareBomb.GetComponent<Rigidbody2D>();
-        rigidbody.AddForce(transform.up * 9, ForceMode2D.Impulse);
+        rigidbody.AddForce(transform.up * 10, ForceMode2D.Impulse);
+    }
+
+    bool LineOfSight()
+    {
+        Vector2 start = transform.position + transform.up;
+        Vector2 direction = transform.TransformDirection(Vector2.up) * range;
+
+        RaycastHit2D hit = Physics2D.Raycast(start, transform.up, range);
+        if (hit)
+        {
+            //Debug.DrawRay(start, transform.up * 7f, Color.red, .1f, true);
+      
+            if (hit.collider.tag == "Player" && hit != null)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     void UpdateCooldowns()
