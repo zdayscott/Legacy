@@ -11,6 +11,7 @@ TagManager:
   - ExperienceBar
   - RoomSpawn
   - Rooms
+  - Projectile
   layers:
   - Default
   - TransparentFX
