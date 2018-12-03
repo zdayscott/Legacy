@@ -3322,34 +3322,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224083954025766934, guid: 23605b4bff25f1c41a4a64e60869189d,
     type: 2}
   m_PrefabInternal: {fileID: 444111377}
---- !u!1 &463451795
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 463451796}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &463451796
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 463451795}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.72, z: -5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 350039279}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &463746205
 Prefab:
   m_ObjectHideFlags: 0
@@ -10019,6 +9991,16 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114139924010322436, guid: 604cd69dd4ccc6247a10f9925b999e76,
+        type: 2}
+      propertyPath: m_Text
+      value: Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 114425723969928404, guid: 604cd69dd4ccc6247a10f9925b999e76,
+        type: 2}
+      propertyPath: m_Text
+      value: Xp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 604cd69dd4ccc6247a10f9925b999e76, type: 2}
   m_IsPrefabAsset: 0
@@ -10172,14 +10154,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114226793338457288, guid: f0ac855f565289a44843f241ad4fef62,
         type: 2}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 2137785709}
+    - target: {fileID: 114226793338457288, guid: f0ac855f565289a44843f241ad4fef62,
+        type: 2}
       propertyPath: expText
       value: 
       objectReference: {fileID: 1880955413}
-    - target: {fileID: 114226793338457288, guid: f0ac855f565289a44843f241ad4fef62,
-        type: 2}
-      propertyPath: itemDropLoc
-      value: 
-      objectReference: {fileID: 463451796}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0ac855f565289a44843f241ad4fef62, type: 2}
   m_IsPrefabAsset: 0
@@ -10214,6 +10196,12 @@ Transform:
   m_Father: {fileID: 1821989113}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2137785709 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114139924010322436, guid: 604cd69dd4ccc6247a10f9925b999e76,
+    type: 2}
+  m_PrefabInternal: {fileID: 2110937550}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &2139031682
 Prefab:
   m_ObjectHideFlags: 0
