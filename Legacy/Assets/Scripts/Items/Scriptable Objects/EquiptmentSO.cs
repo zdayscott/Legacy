@@ -12,4 +12,4 @@ public class EquiptmentSO : ItemSO {
 
 }
 
-public enum EquimentType { Weapon, Helmet, Armor, Boots}
+public enum EquimentType {Helmet, Armor, Boots}

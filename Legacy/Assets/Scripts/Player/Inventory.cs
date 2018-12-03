@@ -23,12 +23,27 @@ public class Inventory : MonoBehaviour {
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
 
+    public delegate void OnEquipt();
+    public OnEquipt onEquiptCallback;
+
+
     [Header("General Inventory")]
     public List<ItemSO> items = new List<ItemSO>();
 
     public int space = 12;
 
     public GameObject inGameitemPrefab;
+
+    EquipmentManager equipmentManager;
+
+    private void Start()
+    {
+        equipmentManager = EquipmentManager.instance;
+        if(equipmentManager == null)
+        {
+            Debug.Log("No EquiptmenManager found!!!");
+        }
+    }
 
     public bool Add(ItemSO item)
     {
@@ -59,5 +74,37 @@ public class Inventory : MonoBehaviour {
         {
             onItemChangedCallback.Invoke();
         }
+    }
+
+    public void Equip(EquiptmentSO eq)
+    {
+        equipmentManager.Equip(eq, eq.type);
+
+        if(onEquiptCallback != null)
+        {
+            onEquiptCallback.Invoke();
+        }
+
+        Remove(eq);
+
+    }
+
+    public void EquiptWeapon(WeaponSO wep)
+    {
+        Debug.Log(wep);
+        EquiptWep(wep);
+
+        if (onEquiptCallback != null)
+        {
+            onEquiptCallback.Invoke();
+        }
+
+        Remove(wep);
+    }
+
+    private void EquiptWep(WeaponSO wep)
+    {
+        Debug.Log(wep);
+        equipmentManager.EquiptWeapon(wep as WeaponSO);
     }
 }

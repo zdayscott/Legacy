@@ -11,12 +11,14 @@ public class Player : MonoBehaviour {
     public Slider healthbar = null;
 
     private Inventory inventory;
+    private EquipmentManager equipmentManager;
 
     [Header("Stats")]
     public float defense = 1f;
     public float attackDamage;
     public float attackSpeed;
     public float movementSpeed;
+
     public Text healthText;
 
     [Header("Experience and Leveling")]
@@ -36,6 +38,8 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        equipmentManager = EquipmentManager.instance;
+
         health = maxHealth;
 
         if(healthbar == null)
@@ -86,10 +90,15 @@ public class Player : MonoBehaviour {
         experience += exp;
         if(experience >= expLevels[level])
         {
+
+        }
+        experienceBar.value = experience;
+    }
+
+    void LevelUp()
+    {
             experience -= expLevels[level];
             level++;
             experienceBar.maxValue = expLevels[level];
-        }
-        experienceBar.value = experience;
     }
 }

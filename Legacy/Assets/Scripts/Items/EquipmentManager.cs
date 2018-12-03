@@ -11,13 +11,15 @@ public class EquipmentManager : MonoBehaviour {
     {
         if (instance != null)
         {
-            instance = this;
+            Debug.LogWarning("More than one EquiptmentManager Found!!!");
         }
+        instance = this;
     }
 
     #endregion
 
-    EquiptmentSO[] currentEquiptment;
+    public EquiptmentSO[] currentEquiptment;
+    public WeaponSO currentWeapon;
 
     private void Start()
     {
@@ -29,6 +31,23 @@ public class EquipmentManager : MonoBehaviour {
     {
         int index = (int)type;
 
+        if(currentEquiptment[index] != null)
+        {
+            EquiptmentSO oldItem = currentEquiptment[index];
+            Inventory.instance.Add(oldItem);
+        }
+
         currentEquiptment[index] = newItem;
+    }
+
+    public void EquiptWeapon(WeaponSO weapon)
+    {
+        if (currentWeapon != null)
+        {
+            WeaponSO oldItem = currentWeapon;
+            Inventory.instance.Add(oldItem);
+        }
+
+        currentWeapon = weapon;
     }
 }
