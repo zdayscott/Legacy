@@ -452,7 +452,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1451143213}
+      - m_Target: {fileID: 0}
         m_MethodName: UseItem
         m_Mode: 1
         m_Arguments:
@@ -3011,6 +3011,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 239921124}
+  - component: {fileID: 239921125}
   m_Layer: 5
   m_Name: Weapon
   m_TagString: Untagged
@@ -3032,13 +3033,29 @@ RectTransform:
   - {fileID: 1201513896}
   - {fileID: 911627587}
   m_Father: {fileID: 488447678}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 60, y: -135}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &239921125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 239921123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9cdec3504ed4e24885290126204a533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 282934356}
+  removeButton: {fileID: 911627588}
+  equiptButton: {fileID: 0}
+  dropOffset: 100
+  isEquiptmentPanel: 1
 --- !u!1 &244871460
 GameObject:
   m_ObjectHideFlags: 0
@@ -3508,7 +3525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.81019783, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4012,6 +4029,7 @@ MonoBehaviour:
   removeButton: {fileID: 1377752299}
   equiptButton: {fileID: 254368509}
   dropOffset: 100
+  isEquiptmentPanel: 0
 --- !u!1 &318994669
 GameObject:
   m_ObjectHideFlags: 0
@@ -6291,7 +6309,6 @@ GameObject:
   m_Component:
   - component: {fileID: 438539397}
   - component: {fileID: 438539399}
-  - component: {fileID: 438539398}
   m_Layer: 5
   m_Name: Slot8
   m_TagString: Untagged
@@ -6321,22 +6338,6 @@ RectTransform:
   m_AnchoredPosition: {x: 412.4999, y: 45}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &438539398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114315682814615206, guid: 604cd69dd4ccc6247a10f9925b999e76,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 438539396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9cdec3504ed4e24885290126204a533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 1631577571}
-  removeButton: {fileID: 1252284656}
-  equiptButton: {fileID: 0}
-  dropOffset: 100
 --- !u!114 &438539399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6351,8 +6352,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 1631577571}
   removeButton: {fileID: 1252284656}
-  equiptButton: {fileID: 0}
+  equiptButton: {fileID: 965518100}
   dropOffset: 100
+  isEquiptmentPanel: 0
 --- !u!1001 &439222998
 Prefab:
   m_ObjectHideFlags: 0
@@ -7121,7 +7123,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1117542343}
+      - m_Target: {fileID: 0}
         m_MethodName: OnRemoveButton
         m_Mode: 1
         m_Arguments:
@@ -7339,10 +7341,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 239921124}
   - {fileID: 804791179}
   - {fileID: 1081230057}
   - {fileID: 821197281}
+  - {fileID: 239921124}
   m_Father: {fileID: 2117591515}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8608,7 +8610,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1117542343}
+      - m_Target: {fileID: 0}
         m_MethodName: OnRemoveButton
         m_Mode: 1
         m_Arguments:
@@ -8755,7 +8757,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1896342009}
+      - m_Target: {fileID: 0}
         m_MethodName: UseItem
         m_Mode: 1
         m_Arguments:
@@ -9110,6 +9112,7 @@ MonoBehaviour:
   removeButton: {fileID: 2042618591}
   equiptButton: {fileID: 0}
   dropOffset: 100
+  isEquiptmentPanel: 0
 --- !u!1 &671469124
 GameObject:
   m_ObjectHideFlags: 0
@@ -9384,7 +9387,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1501548958}
+      - m_Target: {fileID: 0}
         m_MethodName: OnRemoveButton
         m_Mode: 1
         m_Arguments:
@@ -9746,7 +9749,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1375451227}
+      - m_Target: {fileID: 0}
         m_MethodName: OnRemoveButton
         m_Mode: 1
         m_Arguments:
@@ -10310,6 +10313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 804791179}
+  - component: {fileID: 804791180}
   m_Layer: 5
   m_Name: Helmet
   m_TagString: Untagged
@@ -10331,13 +10335,29 @@ RectTransform:
   - {fileID: 2110737370}
   - {fileID: 1625970600}
   m_Father: {fileID: 488447678}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 60, y: 135}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &804791180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 804791178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9cdec3504ed4e24885290126204a533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 2121306739}
+  removeButton: {fileID: 1625970601}
+  equiptButton: {fileID: 0}
+  dropOffset: 100
+  isEquiptmentPanel: 1
 --- !u!1 &821197280
 GameObject:
   m_ObjectHideFlags: 0
@@ -10347,6 +10367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 821197281}
+  - component: {fileID: 821197282}
   m_Layer: 5
   m_Name: Boots
   m_TagString: Untagged
@@ -10368,13 +10389,29 @@ RectTransform:
   - {fileID: 1500049106}
   - {fileID: 171200302}
   m_Father: {fileID: 488447678}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 60, y: -45}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &821197282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 821197280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9cdec3504ed4e24885290126204a533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 1945296279}
+  removeButton: {fileID: 171200303}
+  equiptButton: {fileID: 0}
+  dropOffset: 100
+  isEquiptmentPanel: 1
 --- !u!1001 &840137702
 Prefab:
   m_ObjectHideFlags: 0
@@ -11350,7 +11387,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1375451227}
+      - m_Target: {fileID: 0}
         m_MethodName: OnRemoveButton
         m_Mode: 1
         m_Arguments:
@@ -11921,7 +11958,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 438539398}
+      - m_Target: {fileID: 0}
         m_MethodName: OnRemoveButton
         m_Mode: 1
         m_Arguments:
@@ -12289,7 +12326,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1501548958}
+      - m_Target: {fileID: 0}
         m_MethodName: UseItem
         m_Mode: 1
         m_Arguments:
@@ -13434,6 +13471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1081230057}
+  - component: {fileID: 1081230058}
   m_Layer: 5
   m_Name: Armor
   m_TagString: Untagged
@@ -13455,13 +13493,29 @@ RectTransform:
   - {fileID: 1676413453}
   - {fileID: 404166133}
   m_Father: {fileID: 488447678}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 60, y: 45}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1081230058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1081230056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9cdec3504ed4e24885290126204a533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 2104257816}
+  removeButton: {fileID: 404166134}
+  equiptButton: {fileID: 0}
+  dropOffset: 100
+  isEquiptmentPanel: 1
 --- !u!4 &1091873970 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4117932558813048, guid: 2a554f6e324d44542afb49650dd8c82b,
@@ -13477,7 +13531,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1093955210}
   - component: {fileID: 1093955212}
-  - component: {fileID: 1093955211}
   m_Layer: 5
   m_Name: Slot7
   m_TagString: Untagged
@@ -13507,22 +13560,6 @@ RectTransform:
   m_AnchoredPosition: {x: 312.5, y: 45}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1093955211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114538865559167192, guid: 604cd69dd4ccc6247a10f9925b999e76,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1093955209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9cdec3504ed4e24885290126204a533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 1930000843}
-  removeButton: {fileID: 1822834526}
-  equiptButton: {fileID: 0}
-  dropOffset: 100
 --- !u!114 &1093955212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13537,8 +13574,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 1930000843}
   removeButton: {fileID: 1822834526}
-  equiptButton: {fileID: 0}
+  equiptButton: {fileID: 1915278353}
   dropOffset: 100
+  isEquiptmentPanel: 0
 --- !u!1 &1099701749
 GameObject:
   m_ObjectHideFlags: 0
@@ -13694,7 +13732,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1117542342}
   - component: {fileID: 1117542344}
-  - component: {fileID: 1117542343}
   m_Layer: 5
   m_Name: Slot6
   m_TagString: Untagged
@@ -13724,22 +13761,6 @@ RectTransform:
   m_AnchoredPosition: {x: 212.49995, y: 45}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1117542343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114327031310413324, guid: 604cd69dd4ccc6247a10f9925b999e76,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1117542341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9cdec3504ed4e24885290126204a533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 332477663}
-  removeButton: {fileID: 608833617}
-  equiptButton: {fileID: 0}
-  dropOffset: 100
 --- !u!114 &1117542344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13754,8 +13775,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 332477663}
   removeButton: {fileID: 608833617}
-  equiptButton: {fileID: 0}
+  equiptButton: {fileID: 481684775}
   dropOffset: 100
+  isEquiptmentPanel: 0
 --- !u!1001 &1121254922
 Prefab:
   m_ObjectHideFlags: 0
@@ -14126,7 +14148,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1432858423}
+      - m_Target: {fileID: 0}
         m_MethodName: UseItem
         m_Mode: 1
         m_Arguments:
@@ -14363,7 +14385,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 438539398}
+      - m_Target: {fileID: 0}
         m_MethodName: UseItem
         m_Mode: 1
         m_Arguments:
@@ -15444,7 +15466,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1432858423}
+      - m_Target: {fileID: 0}
         m_MethodName: OnRemoveButton
         m_Mode: 1
         m_Arguments:
@@ -15552,7 +15574,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1501548958}
+      - m_Target: {fileID: 0}
         m_MethodName: OnRemoveButton
         m_Mode: 1
         m_Arguments:
@@ -15897,7 +15919,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 438539398}
+      - m_Target: {fileID: 0}
         m_MethodName: OnRemoveButton
         m_Mode: 1
         m_Arguments:
@@ -16582,6 +16604,24 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9369607755f589f4195fe562f8f52f3a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1306025432 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1463148720362494, guid: 9369607755f589f4195fe562f8f52f3a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1306025431}
+--- !u!114 &1306025433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1306025432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a84e5e3d06146147afe377b37e1c80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentEquiptment: []
+  currentWeapon: {fileID: 0}
 --- !u!1 &1307486558
 GameObject:
   m_ObjectHideFlags: 0
@@ -16641,7 +16681,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1896342009}
+      - m_Target: {fileID: 0}
         m_MethodName: OnRemoveButton
         m_Mode: 1
         m_Arguments:
@@ -16986,7 +17026,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1432858423}
+      - m_Target: {fileID: 0}
         m_MethodName: OnRemoveButton
         m_Mode: 1
         m_Arguments:
@@ -18013,7 +18053,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1375451226}
   - component: {fileID: 1375451228}
-  - component: {fileID: 1375451227}
   m_Layer: 5
   m_Name: Slot5
   m_TagString: Untagged
@@ -18043,22 +18082,6 @@ RectTransform:
   m_AnchoredPosition: {x: 112.49998, y: 45}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1375451227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114696351063253980, guid: 604cd69dd4ccc6247a10f9925b999e76,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1375451225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9cdec3504ed4e24885290126204a533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 1196809235}
-  removeButton: {fileID: 751674009}
-  equiptButton: {fileID: 0}
-  dropOffset: 100
 --- !u!114 &1375451228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18073,8 +18096,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 1196809235}
   removeButton: {fileID: 751674009}
-  equiptButton: {fileID: 0}
+  equiptButton: {fileID: 916457304}
   dropOffset: 100
+  isEquiptmentPanel: 0
 --- !u!1 &1377752298
 GameObject:
   m_ObjectHideFlags: 0
@@ -18389,7 +18413,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1451143213}
+      - m_Target: {fileID: 0}
         m_MethodName: OnRemoveButton
         m_Mode: 1
         m_Arguments:
@@ -18693,7 +18717,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1432858422}
   - component: {fileID: 1432858424}
-  - component: {fileID: 1432858423}
   m_Layer: 5
   m_Name: Slot10
   m_TagString: Untagged
@@ -18723,22 +18746,6 @@ RectTransform:
   m_AnchoredPosition: {x: 212.49995, y: -45}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1432858423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114302564879748896, guid: 604cd69dd4ccc6247a10f9925b999e76,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1432858421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9cdec3504ed4e24885290126204a533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 171796498}
-  removeButton: {fileID: 1315335341}
-  equiptButton: {fileID: 0}
-  dropOffset: 100
 --- !u!114 &1432858424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18753,8 +18760,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 171796498}
   removeButton: {fileID: 1315335341}
-  equiptButton: {fileID: 0}
+  equiptButton: {fileID: 1226506962}
   dropOffset: 100
+  isEquiptmentPanel: 0
 --- !u!1001 &1435486081
 Prefab:
   m_ObjectHideFlags: 0
@@ -19019,7 +19027,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1451143212}
   - component: {fileID: 1451143214}
-  - component: {fileID: 1451143213}
   m_Layer: 5
   m_Name: Slot12
   m_TagString: Untagged
@@ -19049,22 +19056,6 @@ RectTransform:
   m_AnchoredPosition: {x: 412.4999, y: -45}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1451143213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114736019277291566, guid: 604cd69dd4ccc6247a10f9925b999e76,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1451143211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9cdec3504ed4e24885290126204a533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 1957207149}
-  removeButton: {fileID: 1960571748}
-  equiptButton: {fileID: 0}
-  dropOffset: 100
 --- !u!114 &1451143214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19079,8 +19070,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 1957207149}
   removeButton: {fileID: 1960571748}
-  equiptButton: {fileID: 0}
+  equiptButton: {fileID: 1385207846}
   dropOffset: 100
+  isEquiptmentPanel: 0
 --- !u!1001 &1457515312
 Prefab:
   m_ObjectHideFlags: 0
@@ -19627,7 +19619,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1501548957}
   - component: {fileID: 1501548959}
-  - component: {fileID: 1501548958}
   m_Layer: 5
   m_Name: Slot9
   m_TagString: Untagged
@@ -19657,22 +19648,6 @@ RectTransform:
   m_AnchoredPosition: {x: 112.49998, y: -45}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1501548958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114017396555993288, guid: 604cd69dd4ccc6247a10f9925b999e76,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1501548956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9cdec3504ed4e24885290126204a533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 1420095484}
-  removeButton: {fileID: 1233466060}
-  equiptButton: {fileID: 0}
-  dropOffset: 100
 --- !u!114 &1501548959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19687,8 +19662,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 1420095484}
   removeButton: {fileID: 1233466060}
-  equiptButton: {fileID: 0}
+  equiptButton: {fileID: 672770619}
   dropOffset: 100
+  isEquiptmentPanel: 0
 --- !u!1001 &1530178068
 Prefab:
   m_ObjectHideFlags: 0
@@ -21225,6 +21201,7 @@ MonoBehaviour:
   removeButton: {fileID: 432949349}
   equiptButton: {fileID: 2015455129}
   dropOffset: 100
+  isEquiptmentPanel: 0
 --- !u!1001 &1713697957
 Prefab:
   m_ObjectHideFlags: 0
@@ -21580,7 +21557,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1375451227}
+      - m_Target: {fileID: 0}
         m_MethodName: UseItem
         m_Mode: 1
         m_Arguments:
@@ -22284,7 +22261,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093955211}
+      - m_Target: {fileID: 0}
         m_MethodName: OnRemoveButton
         m_Mode: 1
         m_Arguments:
@@ -23022,7 +22999,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1896342008}
   - component: {fileID: 1896342010}
-  - component: {fileID: 1896342009}
   m_Layer: 5
   m_Name: Slot11
   m_TagString: Untagged
@@ -23052,22 +23028,6 @@ RectTransform:
   m_AnchoredPosition: {x: 312.5, y: -45}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1896342009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114463849283231886, guid: 604cd69dd4ccc6247a10f9925b999e76,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1896342007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9cdec3504ed4e24885290126204a533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 118492483}
-  removeButton: {fileID: 1307486559}
-  equiptButton: {fileID: 0}
-  dropOffset: 100
 --- !u!114 &1896342010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23082,8 +23042,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 118492483}
   removeButton: {fileID: 1307486559}
-  equiptButton: {fileID: 0}
+  equiptButton: {fileID: 2098532718}
   dropOffset: 100
+  isEquiptmentPanel: 0
 --- !u!1 &1897613034
 GameObject:
   m_ObjectHideFlags: 0
@@ -23280,7 +23241,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1117542343}
+      - m_Target: {fileID: 0}
         m_MethodName: UseItem
         m_Mode: 1
         m_Arguments:
@@ -23486,7 +23447,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093955211}
+      - m_Target: {fileID: 0}
         m_MethodName: OnRemoveButton
         m_Mode: 1
         m_Arguments:
@@ -23658,7 +23619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.81019783, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -24007,7 +23968,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1451143213}
+      - m_Target: {fileID: 0}
         m_MethodName: OnRemoveButton
         m_Mode: 1
         m_Arguments:
@@ -24195,7 +24156,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093955211}
+      - m_Target: {fileID: 0}
         m_MethodName: UseItem
         m_Mode: 1
         m_Arguments:
@@ -25586,6 +25547,7 @@ MonoBehaviour:
   removeButton: {fileID: 1293489595}
   equiptButton: {fileID: 549734635}
   dropOffset: 100
+  isEquiptmentPanel: 0
 --- !u!1 &2098532716
 GameObject:
   m_ObjectHideFlags: 0
@@ -25664,7 +25626,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1896342009}
+      - m_Target: {fileID: 0}
         m_MethodName: OnRemoveButton
         m_Mode: 1
         m_Arguments:
@@ -25763,7 +25725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.81019783, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -26033,7 +25995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.81019783, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
