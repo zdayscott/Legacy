@@ -50,4 +50,27 @@ public class EquipmentManager : MonoBehaviour {
 
         currentWeapon = weapon;
     }
+
+    public void Remove(ItemSO item)
+    {
+        if(item is WeaponSO)
+        {
+            currentWeapon = null;
+        }
+        else if(item is EquiptmentSO)
+        {
+            if(item is HelmetSO)
+            {
+                currentEquiptment[0] = null;
+            }
+            else if(item is ArmorSO)
+            {
+                currentEquiptment[1] = null;
+            }
+            else if(item is BootsSO)
+            {
+                currentEquiptment[2] = null;
+            }
+        }
+    }
 }

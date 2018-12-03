@@ -44,11 +44,25 @@ public class InventorySlot : MonoBehaviour
 
     public void OnRemoveButton()
     {
-        ItemSO dropItem = item;
-        Inventory.instance.Remove(item);
-        ClearSlot();
+        if(!isEquiptmentPanel)
+        {
+            ItemSO dropItem = item;
+            Inventory.instance.Remove(item);
+            ClearSlot();
 
-        SpawnItem(dropItem);
+            SpawnItem(dropItem);
+        }else
+        {
+            Debug.Log("De-Equip");
+            ItemSO dropItem = item;
+            EquipmentManager.instance.Remove(item);
+            ClearSlot();
+
+            if(!Inventory.instance.Add(dropItem))
+            {
+                SpawnItem(dropItem);
+            }
+        }
     }
 
     void SpawnItem(ItemSO item)
