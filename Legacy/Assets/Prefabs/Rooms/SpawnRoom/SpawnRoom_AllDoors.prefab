@@ -399,7 +399,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146146579515114}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.91, y: -7, z: 0}
+  m_LocalPosition: {x: 30.3, y: -7, z: 169.1}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children: []
   m_Father: {fileID: 4085282200190020}
@@ -2038,6 +2038,9 @@ MonoBehaviour:
   - {fileID: 1501971084177922, guid: 0c26e23525fd5e548a85f51b529259bd, type: 2}
   - {fileID: 1091625123648556, guid: 97d3673cf36fefb48909eccdee5eec48, type: 2}
   - {fileID: 1248391231996592, guid: e1a6116af53e6fa44a451d74ef7cd612, type: 2}
+  rooms: []
+  waitTime: 2
+  boss: {fileID: 1015486607895184, guid: 9d1d854d29982e14aac5851d4409bac7, type: 2}
 --- !u!114 &114796687705564380
 MonoBehaviour:
   m_ObjectHideFlags: 1
