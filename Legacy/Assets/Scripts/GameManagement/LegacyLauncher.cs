@@ -13,9 +13,8 @@ public class LegacyLauncher : MonoBehaviour
 
     IEnumerator SendData()
     {
-        //WWWForm form = new WWWForm();
+
         string jsonStr = JsonUtility.ToJson(weapon, true);
-        //form.AddField("x", jsonStr);
 
         var uwr = new UnityWebRequest(sendURL, "POST");
         byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsonStr);
@@ -26,11 +25,6 @@ public class LegacyLauncher : MonoBehaviour
 
         yield return uwr.SendWebRequest();
 
-        // using (UnityWebRequest www = UnityWebRequest.Post(sendURL, form))
-        //  {
-        //     www.chunkedTransfer = false;
-        //    yield return www.SendWebRequest();
-
             if (uwr.isNetworkError || uwr.isHttpError)
             {
                 Debug.Log(uwr.error);
@@ -39,7 +33,6 @@ public class LegacyLauncher : MonoBehaviour
             {
                 Debug.Log("Form upload complete! Recieved: " + uwr.downloadHandler.text);
             }
-        // }
     }
 
     public void SendWeapon()

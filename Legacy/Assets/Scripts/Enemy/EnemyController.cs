@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    enum states {IDLE, WALKING, ATTACKING };
+    private states state;
+
     public float speed = 5f;
     public Transform target;
-    float timeCount = 0.0f;
-    Rigidbody2D rb;
+    private float visionRange = 12f;
 
     public Vector2 attackingDirection = new Vector2(1, 0);
     public GameObject attackObject;
+    public GameObject bomb;
 
     public float closeEnough = .25f;
     public float range = 7f;
@@ -23,10 +26,20 @@ public class EnemyController : MonoBehaviour
     public float rechargeTime = .4f;
     private float rechargeTimeCurrent;
 
+    // Time it takes for next bomb to be ready
+    public float bombDelay = 3f;
+    private float bombRechargeRate = 0f;
 
+    // Cast Time
+    public float castTime = .2f;
+    private float castTimeCurrent;
 
-
+    // Distance attack collider will spawn from enemy
     public float attackOffset = 1f;
+
+    //Colors
+    public Color idleColor;
+    public Color castingColor;
 
     void Awake()
     {
@@ -36,32 +49,48 @@ public class EnemyController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-
         if (target == null)
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
         }
-        
+        state = states.IDLE;        
     }
 
     // Update is called once per frame
     void Update()
     {
+        Actions();
+        UpdateCooldowns();
+
+        if(state == states.IDLE)
+        {
+            GetComponent<SpriteRenderer>().color = idleColor;
+        }
+        else if(state == states.ATTACKING)
+        {
+            GetComponent<SpriteRenderer>().color = castingColor;
+        }
+    }
+
+    void Actions()
+    {
         float offset = 1.95f;
         float distanceToTarget = CalculateDistance(target, this.transform);
 
-        if (distanceToTarget - offset <= closeEnough)
+        if ((distanceToTarget - offset <= closeEnough) || (state == states.ATTACKING))
         {
-            Attack();   //------------------------TODO----------------------------------
-            UpdateCooldowns();
+            Attack();
         }
-        else if (distanceToTarget <= range)
+        else if (distanceToTarget <= range && state != states.ATTACKING)
         {
             SeekTarget();
+            if (LineOfSight() && bombRechargeRate <= 0)
+            {
+                ThrowBomb();
+            }
         }
-        else 
-        {
+        else if(state != states.ATTACKING && distanceToTarget <= visionRange)
+        { 
             LookAtPlayer();
         }
     }
@@ -73,21 +102,61 @@ public class EnemyController : MonoBehaviour
 
     void Attack()
     {
-        //Debug.Log("Attack called!");
         attackingDirection = new Vector2(target.position.x - this.transform.position.x, target.position.y - this.transform.position.y).normalized;
-        if (rechargeTimeCurrent <= 0)
+        if (rechargeTimeCurrent <= 0 || state == states.ATTACKING)
         {
-            //attackObject.transform.localPosition = attackObject.transform.up + attackOffset;
-            attackObject.SetActive(true);
-            attackTimeCurrent = attackTime;
-            rechargeTimeCurrent = rechargeTime;
+            if(state != states.ATTACKING)
+            {
+                state = states.ATTACKING;
+                castTimeCurrent = castTime;
+            }
+
+            if(castTimeCurrent <= 0)
+            {
+                attackObject.SetActive(true);
+                attackTimeCurrent = attackTime;
+                rechargeTimeCurrent = rechargeTime;
+                state = states.IDLE;
+            }
+            castTimeCurrent -= Time.deltaTime;
+        } 
+    }
+
+    void ThrowBomb()
+    {
+        bombRechargeRate = bombDelay;
+
+        GameObject spareBomb = Instantiate(bomb, gameObject.transform.position, transform.rotation) as GameObject;
+
+        // Get rigidbody and apply a force to bomb
+        Rigidbody2D rigidbody = spareBomb.GetComponent<Rigidbody2D>();
+        rigidbody.AddForce(transform.up * 10, ForceMode2D.Impulse);
+    }
+
+    bool LineOfSight()
+    {
+        Vector2 start = transform.position + transform.up;
+        Vector2 direction = transform.TransformDirection(Vector2.up) * range;
+
+        RaycastHit2D hit = Physics2D.Raycast(start, transform.up, range);
+        if (hit)
+        {
+            //Debug.DrawRay(start, transform.up * 7f, Color.red, .1f, true);
+      
+            if (hit.collider.tag == "Player" && hit != null)
+            {
+                return true;
+            }
         }
-        
+
+        return false;
     }
 
     void UpdateCooldowns()
     {
         rechargeTimeCurrent -= Time.deltaTime;
+        bombRechargeRate -= Time.deltaTime;
+
         if (attackTimeCurrent > 0)
         {
             attackTimeCurrent -= Time.deltaTime;
@@ -109,9 +178,5 @@ public class EnemyController : MonoBehaviour
         float angle = (Mathf.Atan2(vectorTarget.y, vectorTarget.x) * Mathf.Rad2Deg) - 90;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 3);
-        
-        //Vector2 lookDir = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
-
-        //transform.up = target.position - transform.position;
     }
 }

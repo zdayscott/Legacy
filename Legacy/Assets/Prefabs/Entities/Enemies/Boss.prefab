@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114572069013695944}
   m_Layer: 5
   m_Name: Boss
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &58083686500574084
 CircleCollider2D:
@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 30
+  expDroped: 20
+  Exit: {fileID: 1439611619746130, guid: 2f1b29fec02d31841a8be95a53d80e6e, type: 2}
 --- !u!114 &114673447154933464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,11 +182,16 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1650568122809564}
+  bomb: {fileID: 0}
   closeEnough: 6
   range: 15
   attackTime: 0.25
   rechargeTime: 0.4
-  attackOffset: 0.7
+  bombDelay: 3
+  castTime: 0.2
+  attackOffset: 0.11
+  idleColor: {r: 1, g: 0.20392159, b: 0.20392159, a: 1}
+  castingColor: {r: 0.7264151, g: 0.07195621, b: 0.5936666, a: 1}
 --- !u!212 &212085727412158160
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -285,7 +292,7 @@ RectTransform:
   m_GameObject: {fileID: 1015486607895184}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 12.686, y: 12.686, z: 12.686}
+  m_LocalScale: {x: 4.1625304, y: 4.1625304, z: 4.1625304}
   m_Children:
   - {fileID: 4186581306634040}
   m_Father: {fileID: 0}
@@ -293,6 +300,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -51.647984, y: 29.81992}
+  m_AnchoredPosition: {x: 50.7, y: 112}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
