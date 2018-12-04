@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114572069013695944}
   m_Layer: 5
   m_Name: Boss
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 30
-  expDroped: 5
+  expDroped: 20
+  Exit: {fileID: 1439611619746130, guid: 2f1b29fec02d31841a8be95a53d80e6e, type: 2}
 --- !u!114 &114673447154933464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -181,10 +182,12 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1650568122809564}
+  bomb: {fileID: 0}
   closeEnough: 6
   range: 15
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
   castTime: 0.2
   attackOffset: 0.11
   idleColor: {r: 1, g: 0.20392159, b: 0.20392159, a: 1}

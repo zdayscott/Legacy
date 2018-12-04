@@ -66,9 +66,14 @@ public class PlayerController : MonoBehaviour {
     void Attack()
     {
         Vector2 mousePos = Input.mousePosition;
+        Debug.Log("Mouse pos: " + mousePos);
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        Debug.Log("Mouse pos Screen: " + mousePos);
 
         attackingDirection = new Vector2(mousePos.x - this.transform.position.x, mousePos.y - this.transform.position.y).normalized;
+
+        Debug.Log(attackingDirection);
+
         if (rechargeTimeCurrent <= 0)
         {
             attackObj.transform.localPosition = attackingDirection * .7f;

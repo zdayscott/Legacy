@@ -9,6 +9,7 @@ public class EnemyStats : MonoBehaviour {
 
     public int expDroped = 5;
 
+    public GameObject Exit;
 
 	// Use this for initialization
 	void Start ()
@@ -34,6 +35,18 @@ public class EnemyStats : MonoBehaviour {
     void Die()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().ExpGain(expDroped);
+
+        Debug.Log(this.gameObject.tag);
+        if(this.gameObject.tag == "Boss")
+        {
+            Debug.Log("Spawning Exit!!!");
+            Vector3 pos = this.transform.position;
+            pos.z = -1;
+            Quaternion rot = this.transform.rotation;
+            rot.z = 0;
+            Instantiate(Exit, pos, rot);
+        }
+
         Destroy(this.gameObject);
     }
 }
