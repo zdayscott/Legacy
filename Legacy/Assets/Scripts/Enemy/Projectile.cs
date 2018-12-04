@@ -56,7 +56,7 @@ public class Projectile : MonoBehaviour {
             GameObject smallFire = Instantiate(fire, gameObject.transform.position, transform.rotation) as GameObject;
             Destroy(gameObject);
         }
-        else if (collide.gameObject.tag == "Enemy" && shooter == "Player")
+        else if (collide.gameObject.tag == "Enemy" || collide.gameObject.tag == "Boss" && shooter == "Player")
         {
             collide.GetComponent<EnemyStats>().TakeDamage(damage, fire);
             Destroy(gameObject);
