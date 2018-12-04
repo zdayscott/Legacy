@@ -12,6 +12,8 @@ TagManager:
   - RoomSpawn
   - Rooms
   - Projectile
+  - FxTemporaire
+  - Boss
   layers:
   - Default
   - TransparentFX

@@ -20,7 +20,7 @@ public class Attack : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enemy" && !enemiesHit.Contains(collision))
+        if((collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Boss") && !enemiesHit.Contains(collision))
         {
             Debug.Log("Attacking: " + collision.gameObject.name);
             collision.GetComponent<EnemyStats>().TakeDamage(damage, player);
@@ -30,7 +30,7 @@ public class Attack : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy" && !enemiesHit.Contains(collision) && false)
+        if ((collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Boss") && !enemiesHit.Contains(collision) && false)
         {
             collision.GetComponent<EnemyStats>().TakeDamage(damage, player);
             enemiesHit.Add(collision);
