@@ -15,13 +15,15 @@ public class InventoryUI : MonoBehaviour {
         inventory = Inventory.instance;
         equipmentManager = EquipmentManager.instance;
         inventory.onItemChangedCallback += UpdateUi;
-        inventory.onEquiptCallback += UpdateEquiptmentUi;
+        equipmentManager.onEquiptCallback += UpdateEquiptmentUi;
+
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
         equiptmentSlots = equiptmentParent.GetComponentsInChildren<InventorySlot>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 

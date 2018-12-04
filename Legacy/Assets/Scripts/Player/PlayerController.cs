@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     Rigidbody2D rb;
 
     public int speed = 5;
+    Player playerStats;
 
     [Header("Attack Variables")]
     //The GameObj that containes the collider and attack sprite
@@ -31,7 +32,8 @@ public class PlayerController : MonoBehaviour {
         rb = this.GetComponent<Rigidbody2D>();
         attackTimeCurrent = attackTime;
         rechargeTimeCurrent = rechargeTime;
-		
+
+        playerStats = gameObject.GetComponent<Player>();
 	}
 	
 	// Update is called once per frame
@@ -58,7 +60,7 @@ public class PlayerController : MonoBehaviour {
         float vert = Input.GetAxisRaw("Vertical");
         move = new Vector2(horz, vert).normalized;
 
-        rb.transform.Translate(move * speed * Time.deltaTime);
+        rb.transform.Translate(move * playerStats.movementSpeed_Current * Time.deltaTime);
     }
 
     void Attack()
@@ -71,6 +73,7 @@ public class PlayerController : MonoBehaviour {
         {
             attackObj.transform.localPosition = attackingDirection * .7f;
             attackObj.SetActive(true);
+            attackObj.GetComponent<Attack>().damage = (int)playerStats.attackDamage_Current;
             attackTimeCurrent = attackTime;
             rechargeTimeCurrent = rechargeTime;
         }

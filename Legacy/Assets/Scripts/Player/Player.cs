@@ -14,10 +14,15 @@ public class Player : MonoBehaviour {
     private EquipmentManager equipmentManager;
 
     [Header("Stats")]
-    public float defense = 1f;
-    public float attackDamage;
-    public float attackSpeed;
-    public float movementSpeed;
+    public float defense_Base = 1f;
+    public float attackDamage_Base = 2f;
+    public float attackSpeed_Base = 1f;
+    public float movementSpeed_Base = 10f;
+
+    public float defense_Current;
+    public float attackDamage_Current;
+    public float attackSpeed_Current;
+    public float movementSpeed_Current;
 
     public Text healthText;
 
@@ -39,6 +44,7 @@ public class Player : MonoBehaviour {
 	void Start ()
     {
         equipmentManager = EquipmentManager.instance;
+        inventory = Inventory.instance;
 
         health = maxHealth;
 
@@ -59,6 +65,9 @@ public class Player : MonoBehaviour {
         experienceBar.value = experience;
         expText.text = experience + "/" + expLevels[level];
         healthText.text = health.ToString();
+
+        ResetStats();
+       equipmentManager.onEquiptCallback += UpdateStats;
     }
 	
 	// Update is called once per frame
@@ -70,7 +79,7 @@ public class Player : MonoBehaviour {
 
     public void TakeDamage(int damage)
     {
-        health = health - damage;
+        health = health - damage/(int)defense_Current;
         healthbar.value = Mathf.Max(0,health);
         if(health <= 0)
         {
@@ -100,5 +109,33 @@ public class Player : MonoBehaviour {
             experience -= expLevels[level];
             level++;
             experienceBar.maxValue = expLevels[level];
+    }
+
+    void ResetStats()
+    {
+        defense_Current = defense_Base;
+        attackDamage_Current = attackDamage_Base;
+        movementSpeed_Current = movementSpeed_Base;
+    }
+
+    void UpdateStats()
+    {
+
+        ResetStats();
+
+        for(int i = 0; i < equipmentManager.currentEquiptment.Length; i++)
+        {
+            if(equipmentManager.currentEquiptment[i] != null)
+            {
+                defense_Current += equipmentManager.currentEquiptment[i].defenseMod;
+                movementSpeed_Current += equipmentManager.currentEquiptment[i].movementMod;
+            }
+        }
+
+        if(equipmentManager.currentWeapon != null)
+        {
+            Debug.Log("Updating Weapon Stats!!!");
+            attackDamage_Current += equipmentManager.currentWeapon.damage;
+        }
     }
 }

@@ -23,10 +23,6 @@ public class Inventory : MonoBehaviour {
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
 
-    public delegate void OnEquipt();
-    public OnEquipt onEquiptCallback;
-
-
     [Header("General Inventory")]
     public List<ItemSO> items = new List<ItemSO>();
 
@@ -80,11 +76,6 @@ public class Inventory : MonoBehaviour {
     {
         equipmentManager.Equip(eq, eq.type);
 
-        if(onEquiptCallback != null)
-        {
-            onEquiptCallback.Invoke();
-        }
-
         Remove(eq);
 
     }
@@ -93,11 +84,6 @@ public class Inventory : MonoBehaviour {
     {
         Debug.Log(wep);
         EquiptWep(wep);
-
-        if (onEquiptCallback != null)
-        {
-            onEquiptCallback.Invoke();
-        }
 
         Remove(wep);
     }

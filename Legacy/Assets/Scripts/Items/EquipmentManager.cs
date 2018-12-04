@@ -21,6 +21,9 @@ public class EquipmentManager : MonoBehaviour {
     public EquiptmentSO[] currentEquiptment;
     public WeaponSO currentWeapon;
 
+    public delegate void OnEquipt();
+    public OnEquipt onEquiptCallback;
+
     private void Start()
     {
         int numSlots = System.Enum.GetNames(typeof(EquimentType)).Length;
@@ -29,7 +32,9 @@ public class EquipmentManager : MonoBehaviour {
 
     public void Equip(EquiptmentSO newItem, EquimentType type)
     {
+        Debug.Log(type);
         int index = (int)type;
+
 
         if(currentEquiptment[index] != null)
         {
@@ -38,6 +43,8 @@ public class EquipmentManager : MonoBehaviour {
         }
 
         currentEquiptment[index] = newItem;
+
+        Callback();
     }
 
     public void EquiptWeapon(WeaponSO weapon)
@@ -49,6 +56,8 @@ public class EquipmentManager : MonoBehaviour {
         }
 
         currentWeapon = weapon;
+
+        Callback();
     }
 
     public void Remove(ItemSO item)
@@ -71,6 +80,16 @@ public class EquipmentManager : MonoBehaviour {
             {
                 currentEquiptment[2] = null;
             }
+        }
+
+        Callback();
+    }
+
+    void Callback()
+    {
+        if (onEquiptCallback != null)
+        {
+            onEquiptCallback.Invoke();
         }
     }
 }

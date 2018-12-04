@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Leather Helmet
   discription: Snug generic helmet
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 8abb14d97fc2f4c999f5291f611d5893, type: 3}
+  type: 0
   healthMod: 0
-  defenseMod: 0
-  movementMod: 0
+  defenseMod: 0.3
+  movementMod: -0.6

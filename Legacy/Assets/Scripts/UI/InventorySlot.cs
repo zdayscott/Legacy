@@ -92,9 +92,6 @@ public class InventorySlot : MonoBehaviour
         {
             Debug.Log("Not Equiptable!!!");
         }
-
-        Inventory.instance.Remove(item);
-        ClearSlot();
     }
 
     public void UseItem()
