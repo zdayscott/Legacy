@@ -17,19 +17,19 @@ public class Projectile : MonoBehaviour {
 
     private string shooter;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         StartCoroutine(DestroyProjectile());
     }
-	
+
     public void updateShoot()
     {
         canShoot = true;
     }
 
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update()
     {
     }
 
@@ -61,12 +61,15 @@ public class Projectile : MonoBehaviour {
             collide.GetComponent<EnemyStats>().TakeDamage(damage, fire);
             Destroy(gameObject);
         }
-        else if (collide.gameObject.tag == "Enemy" && shooter == "Enemy" || collide.gameObject.tag == "Player" && shooter == "Player")
+        else if (collide.gameObject.tag == "Enemy" && shooter == "Enemy" || collide.gameObject.tag == "Player" && shooter == "Player" 
+                 || collide.gameObject.tag == "RoomSpawn")
         {
  
         }
         else
         {
+            Debug.Log("Destroyed");
+            Debug.Log(collide.gameObject.tag);
             Destroy(gameObject);
         }
     }
