@@ -7,6 +7,7 @@ public class Bomb : MonoBehaviour {
     public GameObject fire;
     private GameObject[] fireEmbers = new GameObject[8];
 
+    public float spread;
     public float timer;
     public float radius = 1.5f;
     public float power = 5.0f;
@@ -90,7 +91,7 @@ public class Bomb : MonoBehaviour {
     {
         for (int i = 0; i < 8; i++)
         {
-            Vector3 direction = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
+            Vector3 direction = new Vector3(Random.Range(-spread, spread), Random.Range(-spread, spread), 0);
             Instantiate(fire, transform.position + direction, transform.rotation);
             yield return new WaitForSeconds(.02f);
         }

@@ -63,13 +63,16 @@ public class RoomGeneration : MonoBehaviour {
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("RoomSpawn"))
+        if (collider.GetComponent<RoomGeneration>() != null)
         {
-            if(collider.GetComponent<RoomGeneration>().spawned == false && spawned == false)
+            if (collider.CompareTag("RoomSpawn"))
             {
-                Destroy(gameObject);
+                if (collider.GetComponent<RoomGeneration>().spawned == false && spawned == false)
+                {
+                    Destroy(gameObject);
+                }
+                spawned = true;
             }
-            spawned = true;
         }
     }
 }
