@@ -39,27 +39,45 @@ public class Player : MonoBehaviour {
 
     public Transform itemDropLoc;
 
-
-	// Use this for initialization
-	void Start ()
+    private void Awake()
     {
-        equipmentManager = EquipmentManager.instance;
-        inventory = Inventory.instance;
-
-        health = maxHealth;
+        Debug.Log("ON Awake!");
 
         if(healthbar == null)
         {
             //Debug.Log("Finding GO");
             healthbar = GameObject.FindGameObjectWithTag("PlayerHealthBar").GetComponent<Slider>(); 
         }
-        healthbar.maxValue = maxHealth;
-        healthbar.minValue = 0f;
+
 
         if(experienceBar == null)
         {
             experienceBar = GameObject.FindGameObjectWithTag("ExperienceBar").GetComponent<Slider>();
         }
+    }
+
+    // Use this for initialization
+    void Start ()
+    {
+        if (healthbar == null)
+        {
+            healthbar = GameObject.FindGameObjectWithTag("PlayerHealthBar").GetComponent<Slider>();
+        }
+
+
+        if (experienceBar == null)
+        {
+            experienceBar = GameObject.FindGameObjectWithTag("ExperienceBar").GetComponent<Slider>();
+        }
+
+        equipmentManager = EquipmentManager.instance;
+        inventory = Inventory.instance;
+
+        health = maxHealth;
+
+        healthbar.maxValue = maxHealth;
+        healthbar.minValue = 0f;
+
         experienceBar.maxValue = expLevels[level];
         experienceBar.minValue = 0;
         experienceBar.value = experience;
@@ -99,7 +117,7 @@ public class Player : MonoBehaviour {
         experience += exp;
         if(experience >= expLevels[level])
         {
-
+            LevelUp();
         }
         experienceBar.value = experience;
     }
