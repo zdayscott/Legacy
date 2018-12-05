@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeath: 10
   expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114646700526360162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,11 +185,13 @@ MonoBehaviour:
   bomb: {fileID: 1405838945913592, guid: 89d72af86d7a99044bba17d1009e5e38, type: 2}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 1
   bombDelay: 3
   castTime: 0.7
   attackOffset: 0.7
+  colliderY: 0
   idleColor: {r: 1, g: 0.20392159, b: 0.20392159, a: 1}
   castingColor: {r: 1, g: 0.28773582, b: 0.8610866, a: 1}
 --- !u!212 &212384338568141626
@@ -299,6 +302,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -115.9, y: -68.2}
+  m_AnchoredPosition: {x: -88.6022, y: -7.824541}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
