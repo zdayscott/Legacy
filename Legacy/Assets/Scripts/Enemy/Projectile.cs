@@ -68,8 +68,6 @@ public class Projectile : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Destroyed");
-            Debug.Log(collide.gameObject.tag);
             Destroy(gameObject);
         }
     }

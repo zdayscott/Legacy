@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveOnLoadGM : MonoBehaviour {
 
@@ -14,6 +15,14 @@ public class SaveOnLoadGM : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
         }
         else if (gm != this.gameObject)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().buildIndex != 2)
         {
             Destroy(this.gameObject);
         }
