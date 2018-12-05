@@ -210,16 +210,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114943508452206534, guid: 604cd69dd4ccc6247a10f9925b999e76,
-        type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114773569656618212, guid: 604cd69dd4ccc6247a10f9925b999e76,
-        type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 224327362668864090, guid: 604cd69dd4ccc6247a10f9925b999e76,
         type: 2}
       propertyPath: m_AnchorMax.x
@@ -239,14 +229,6 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1672548351389830, guid: 604cd69dd4ccc6247a10f9925b999e76, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1672548351389830, guid: 604cd69dd4ccc6247a10f9925b999e76, type: 2}
-      propertyPath: m_TagString
-      value: UI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 604cd69dd4ccc6247a10f9925b999e76, type: 2}
@@ -324,22 +306,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0ac855f565289a44843f241ad4fef62, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &624655263 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1672548351389830, guid: 604cd69dd4ccc6247a10f9925b999e76,
-    type: 2}
-  m_PrefabInternal: {fileID: 24869085}
---- !u!114 &624655269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 624655263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7963250f66e2e0545af9ab74d1074b40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &685315280 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114519761097537604, guid: 604cd69dd4ccc6247a10f9925b999e76,
