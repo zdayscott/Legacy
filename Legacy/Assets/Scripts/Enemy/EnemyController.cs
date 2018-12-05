@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
 
     public float speed = 5f;
     public Transform target;
-    private float visionRange = 12f;
+    private float visionRange = 14f;
 
     public Vector2 attackingDirection = new Vector2(1, 0);
     public GameObject attackObject;
@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
 
     public float closeEnough = .25f;
     public float range = 7f;
+    public float bossRange = 16f;
 
     //Time the attack collider will be active
     public float attackTime = .25f;
@@ -36,16 +37,14 @@ public class EnemyController : MonoBehaviour
 
     // Distance attack collider will spawn from enemy
     public float attackOffset = 1f;
+    private Vector2 colliderX;
+    public float colliderY;
 
     //Colors
     public Color idleColor;
     public Color castingColor;
 
-    void Awake()
-    {
-        gameObject.tag = "Enemy";
-    }
-
+    private string tag;
     // Use this for initialization
     void Start()
     {
@@ -53,15 +52,23 @@ public class EnemyController : MonoBehaviour
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
         }
-        state = states.IDLE;        
+        state = states.IDLE;
+        tag = gameObject.tag;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Actions();
-        UpdateCooldowns();
-
+        if (tag == "Boss")
+        {
+            BossActions();
+            UpdateCooldowns();
+        }
+        else
+        {
+            Actions();
+            UpdateCooldowns();
+        }
         if(state == states.IDLE)
         {
             GetComponent<SpriteRenderer>().color = idleColor;
@@ -69,6 +76,29 @@ public class EnemyController : MonoBehaviour
         else if(state == states.ATTACKING)
         {
             GetComponent<SpriteRenderer>().color = castingColor;
+        }
+    }
+
+    void BossActions()
+    {
+        float offset = 1.95f;
+        float distanceToTarget = CalculateDistance(target, this.transform);
+
+        if ((distanceToTarget - offset <= closeEnough) || (state == states.ATTACKING))
+        {
+            Attack();
+        }
+        else if (distanceToTarget > closeEnough && distanceToTarget <= bossRange && state != states.ATTACKING)
+        {
+            SeekTarget();
+            if (LineOfSight() && bombRechargeRate <= 0)
+            {
+                ThrowBomb();
+            }
+        }
+        else if (state != states.ATTACKING && distanceToTarget <= visionRange)
+        {
+            LookAtPlayer();
         }
     }
 
@@ -81,16 +111,16 @@ public class EnemyController : MonoBehaviour
         {
             Attack();
         }
-        else if (distanceToTarget <= range && state != states.ATTACKING)
+        else if (LineOfSight() && state != states.ATTACKING)
         {
             SeekTarget();
-            if (LineOfSight() && bombRechargeRate <= 0)
+            if (bombRechargeRate <= 0)
             {
                 ThrowBomb();
             }
         }
-        else if(state != states.ATTACKING && distanceToTarget <= visionRange)
-        { 
+        else if (state != states.ATTACKING && distanceToTarget <= visionRange)
+        {
             LookAtPlayer();
         }
     }
@@ -123,7 +153,7 @@ public class EnemyController : MonoBehaviour
     }
 
     void ThrowBomb()
-    {
+    { 
         bombRechargeRate = bombDelay;
 
         GameObject spareBomb = Instantiate(bomb, gameObject.transform.position, transform.rotation) as GameObject;
@@ -135,13 +165,23 @@ public class EnemyController : MonoBehaviour
 
     bool LineOfSight()
     {
-        Vector2 start = transform.position + transform.up;
+        Vector2 start = transform.position + transform.up * 2.4f;
         Vector2 direction = transform.TransformDirection(Vector2.up) * range;
+        RaycastHit2D hit;
+        Debug.DrawRay(start, transform.up * bossRange, Color.yellow, .1f, true);
 
-        RaycastHit2D hit = Physics2D.Raycast(start, transform.up, range);
+        if (tag == "Boss")
+        {
+            hit = Physics2D.Raycast(start, transform.up, bossRange);
+        }
+        else
+        {
+            hit = Physics2D.Raycast(start, transform.up, range);
+        }
+    
         if (hit)
         {
-            //Debug.DrawRay(start, transform.up * 7f, Color.red, .1f, true);
+            //Debug.DrawRay(start + offset, transform.up * bossRange, Color.yellow, .1f, true);
       
             if (hit.collider.tag == "Player" && hit != null)
             {

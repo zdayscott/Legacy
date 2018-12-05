@@ -13,6 +13,8 @@ public class Projectile : MonoBehaviour {
     //public Transform target;
     private Vector2 targetLocation;
 
+    private float rotation;
+
     public GameObject fire;
 
     private string shooter;
@@ -20,6 +22,7 @@ public class Projectile : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        rotation = 15f;
         StartCoroutine(DestroyProjectile());
     }
 
@@ -31,6 +34,12 @@ public class Projectile : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        Spin();
+    }
+
+    void Spin()
+    {
+        transform.Rotate(0, 0, rotation);
     }
 
     public void ShotFiredBy(string s)

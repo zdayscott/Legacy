@@ -72,7 +72,7 @@ Transform:
   m_GameObject: {fileID: 1650568122809564}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.42, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children:
   - {fileID: 4224815972516356}
   m_Father: {fileID: 224336223072008454}
@@ -85,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1815870906956022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.23, z: 0}
   m_LocalScale: {x: 0.94599193, y: 0.94599193, z: 0.94599193}
   m_Children: []
   m_Father: {fileID: 4186581306634040}
@@ -103,7 +103,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -138,9 +138,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.13592881}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.5965547
 --- !u!114 &114572069013695944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,14 +182,16 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1650568122809564}
-  bomb: {fileID: 0}
+  bomb: {fileID: 1220269627867862, guid: 47176ae092737dc47a8c2956ab2cc0c5, type: 2}
   closeEnough: 6
   range: 15
+  bossRange: 12
   attackTime: 0.25
   rechargeTime: 0.4
   bombDelay: 3
   castTime: 0.2
   attackOffset: 0.11
+  colliderY: 0
   idleColor: {r: 1, g: 0.20392159, b: 0.20392159, a: 1}
   castingColor: {r: 0.7264151, g: 0.07195621, b: 0.5936666, a: 1}
 --- !u!212 &212085727412158160
@@ -226,7 +228,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 450e0fb9d04cc4ad6b5ee0226f3e1ea2, type: 3}
   m_Color: {r: 1, g: 0.2028302, b: 0.2028302, a: 1}
   m_FlipX: 0
@@ -300,6 +302,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50.7, y: 112}
+  m_AnchoredPosition: {x: -108.23, y: -16.34}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}

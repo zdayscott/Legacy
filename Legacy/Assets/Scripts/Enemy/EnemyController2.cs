@@ -74,7 +74,7 @@ public class EnemyController2 : MonoBehaviour
     {
         if (rechargeTimeCurrent <= 0)
         {
-            GameObject bullet = Instantiate(projectile, firePosition.position, firePosition.rotation) as GameObject;
+            GameObject bullet = Instantiate(projectile, firePosition.position, transform.rotation) as GameObject;
             Rigidbody2D rb2 = bullet.GetComponent<Rigidbody2D>();
             rb2.AddForce(transform.up * speed, ForceMode2D.Impulse);
             attackTimeCurrent = attackTime;

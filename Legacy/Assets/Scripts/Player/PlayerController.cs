@@ -12,7 +12,11 @@ public class PlayerController : MonoBehaviour {
     [Header("Attack Variables")]
     //The GameObj that containes the collider and attack sprite
     public GameObject attackObj;
+
+    // Gameobject used for players weapons
     public GameObject ninjaStar;
+    public GameObject bomb;
+
     Vector2 attackingDirection = new Vector2(1,0);
 
     //Time the attack collider will be active
@@ -21,6 +25,7 @@ public class PlayerController : MonoBehaviour {
 
     //Time between attacks
     public float rechargeTime = .4f;
+    public float ninjaStarCD = 2f;
     private float rechargeTimeCurrent;
 
     // Keep track of time until player can throw another projectile
@@ -97,14 +102,24 @@ public class PlayerController : MonoBehaviour {
         if (nextStarReady <= 0)
         {
             // Instantiate the ninja star prefab and throw in the direction mouse is facing
-            GameObject star = Instantiate(ninjaStar, transform.position + attackDir + offset, gameObject.transform.rotation) as GameObject;
+            GameObject star = Instantiate(ninjaStar, transform.position + attackDir + offset, transform.rotation) as GameObject;
             Rigidbody2D rbStar = star.GetComponent<Rigidbody2D>();
             rbStar.AddForce(attackDir * speed, ForceMode2D.Impulse);
-
             // Set string to player to help with detecting collisions
             star.GetComponent<Projectile>().ShotFiredBy("Player");
-            nextStarReady = rechargeTime;
+            nextStarReady = ninjaStarCD;
         }
+    }
+
+    void ThrowBomb()
+    {
+
+    }
+
+
+    void DrinkPotion()
+    {
+
     }
 
     void UpdateCooldowns()
