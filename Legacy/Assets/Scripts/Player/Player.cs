@@ -91,7 +91,7 @@ public class Player : MonoBehaviour {
     {
         // Do die stuff (eg. clear inventory, delete save send weapon to server)
         // Call next scene or next function in gameover sequence
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 
     public void ExpGain(int exp)
