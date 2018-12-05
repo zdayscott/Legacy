@@ -24,7 +24,7 @@ public class SaveOnLoadUI : MonoBehaviour {
     public void DestroyAll()
     {
         Debug.Log("Start!!!");
-        if (SceneManager.GetActiveScene().buildIndex != 2)
+        if (SceneManager.GetActiveScene().buildIndex != 1)
         {
             Debug.Log("Kill call!!!");
             Destroy(this.gameObject);

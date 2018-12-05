@@ -22,7 +22,7 @@ public class SaveOnLoadGM : MonoBehaviour {
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 2)
+        if (SceneManager.GetActiveScene().buildIndex != 1)
         {
             Destroy(this.gameObject);
         }

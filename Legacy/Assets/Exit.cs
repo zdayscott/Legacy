@@ -15,8 +15,6 @@ public class Exit : MonoBehaviour {
 
     void NextLevel(GameObject player)
     {
-        GameObject gameMan = GameObject.FindGameObjectWithTag("Game Manager");
-        DontDestroyOnLoad(gameMan);
         player.transform.position = resetPoint;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
