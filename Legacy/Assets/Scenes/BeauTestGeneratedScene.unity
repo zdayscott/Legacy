@@ -570,6 +570,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1875366975}
     m_Modifications:
+    - target: {fileID: 114460083142294044, guid: 8ef930d98cf8e6c49a3ea7bc4c982628,
+        type: 2}
+      propertyPath: enemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4990563500671194, guid: 8ef930d98cf8e6c49a3ea7bc4c982628, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -607,6 +612,36 @@ Prefab:
       propertyPath: boss
       value: 
       objectReference: {fileID: 1015486607895184, guid: 9d1d854d29982e14aac5851d4409bac7,
+        type: 2}
+    - target: {fileID: 114460083142294044, guid: 8ef930d98cf8e6c49a3ea7bc4c982628,
+        type: 2}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 1928396185903674, guid: 23605b4bff25f1c41a4a64e60869189d,
+        type: 2}
+    - target: {fileID: 114460083142294044, guid: 8ef930d98cf8e6c49a3ea7bc4c982628,
+        type: 2}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 1464370587665038, guid: 176a6ec81c440fc46a4357a136aa35eb,
+        type: 2}
+    - target: {fileID: 114460083142294044, guid: 8ef930d98cf8e6c49a3ea7bc4c982628,
+        type: 2}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 1789756788746374, guid: 09ad018ff847eb441a3240777b87a3d8,
+        type: 2}
+    - target: {fileID: 114460083142294044, guid: 8ef930d98cf8e6c49a3ea7bc4c982628,
+        type: 2}
+      propertyPath: enemies.Array.data[3]
+      value: 
+      objectReference: {fileID: 1877310374040692, guid: f718e07cc84b02e4a96c83877604a6d3,
+        type: 2}
+    - target: {fileID: 114460083142294044, guid: 8ef930d98cf8e6c49a3ea7bc4c982628,
+        type: 2}
+      propertyPath: enemies.Array.data[4]
+      value: 
+      objectReference: {fileID: 1464370587665038, guid: 176a6ec81c440fc46a4357a136aa35eb,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ef930d98cf8e6c49a3ea7bc4c982628, type: 2}

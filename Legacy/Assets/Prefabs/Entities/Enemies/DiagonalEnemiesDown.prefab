@@ -725,7 +725,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1599554396290298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -69.9123, y: 80.2001, z: -0.03125}
+  m_LocalPosition: {x: 5.731221, y: 4.252199, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224095178242547936}
@@ -1233,11 +1233,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1058988608586546}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114070690702960674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1262,6 +1269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114108764509800010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1274,6 +1283,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114119882649919474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1286,6 +1297,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114145845271460726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1298,6 +1311,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114148494289626940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1322,6 +1337,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114204056746260238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1337,11 +1354,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1059624531096618}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114236048080465248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1369,11 +1393,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1543289502403890}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114439327079512606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1389,11 +1420,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1911406208205864}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114445125782371912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1421,11 +1459,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1344288643030624}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114495047842831020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1441,11 +1486,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1687531152059320}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114506887430376746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1482,6 +1534,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114549306036607000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1494,6 +1548,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114648262984812146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1506,6 +1562,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114679365183225534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1533,11 +1591,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1458868824591706}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114732880925501838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1565,11 +1630,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1285046146391438}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114742776574389334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1585,11 +1657,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1243049191910060}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114887358178883054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1602,6 +1681,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114963462081176794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2458,7 +2539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.012291, y: 22.701584}
+  m_AnchoredPosition: {x: -5.84, y: 6.63}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224308182809871176
@@ -2477,7 +2558,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.3123055, y: 22.30159}
+  m_AnchoredPosition: {x: -3.5399854, y: 6.230006}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224324897033931416
@@ -2496,7 +2577,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.912289, y: 12.601585}
+  m_AnchoredPosition: {x: 5.0599976, y: -3.4699984}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224497136853935998
@@ -2515,7 +2596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.112301, y: 18.80159}
+  m_AnchoredPosition: {x: 1.26001, y: 2.7300062}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224519339934977550
@@ -2534,7 +2615,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.7122993, y: 24.001587}
+  m_AnchoredPosition: {x: -4.1399918, y: 7.930003}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224650404405195050
@@ -2553,7 +2634,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18.212307, y: 12.2015915}
+  m_AnchoredPosition: {x: 7.360016, y: -3.8699923}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224683655420100698
@@ -2572,7 +2653,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.712307, y: 17.101593}
+  m_AnchoredPosition: {x: 1.8600161, y: 1.0300093}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224717772339667196
@@ -2591,7 +2672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.412289, y: 17.501587}
+  m_AnchoredPosition: {x: -0.4400022, y: 1.4300032}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224947846009817148
@@ -2610,6 +2691,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17.6123, y: 13.901588}
+  m_AnchoredPosition: {x: 6.76001, y: -2.1699953}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -499,7 +499,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1789756788746374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -104.214645, y: 42.519436, z: 0.03125}
+  m_LocalPosition: {x: -104.214645, y: 42.519436, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224911900593263896}
@@ -852,11 +852,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1389061671147960}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114072801555224638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -869,6 +876,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114082276273461194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -896,11 +905,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1828960875793856}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114196095292020422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -916,11 +932,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1261078512301154}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114229950283731492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -933,6 +956,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114256243294455300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -948,11 +973,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1134296826815980}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114330609259136446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -977,6 +1009,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114541107021709640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -989,6 +1023,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114565287904022818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1004,11 +1040,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1938395759511314}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114569159826544022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1033,6 +1076,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114701151902482468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1045,6 +1090,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114814439153924874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1084,11 +1131,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1113029720877066}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!212 &212009345722375394
 SpriteRenderer:
   m_ObjectHideFlags: 1

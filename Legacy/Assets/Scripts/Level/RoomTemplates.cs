@@ -14,6 +14,10 @@ public class RoomTemplates : MonoBehaviour {
     public float waitTime;
     private bool spawnedBoss;
     public GameObject boss;
+    public GameObject[] enemies;
+
+    public float xOffset = 20f;
+    public float yOffset = 10f;
 
     void Update()
     {
@@ -29,7 +33,7 @@ public class RoomTemplates : MonoBehaviour {
                 }
                 else
                 {
-                    Debug.Log(i);
+                    EnemySpawner(i * GM.instance.currentFloor, rooms[i].transform);
                 }
             }
         }
@@ -37,6 +41,23 @@ public class RoomTemplates : MonoBehaviour {
         else
         {
             waitTime -= Time.deltaTime;
+        }
+    }
+
+    void EnemySpawner(int difficulty, Transform roomCenter)
+    {
+        List<GameObject> enemiesInRoom = new List<GameObject>();
+
+        while(difficulty >= 0)
+        {
+            enemiesInRoom.Add(enemies[Random.Range(0, enemies.Length)]);
+            difficulty -= 1;
+        }
+
+        foreach(GameObject e in enemiesInRoom)
+        {
+            Vector3 offset = new Vector3(Random.Range(-xOffset, xOffset), Random.Range(-yOffset, yOffset), 0);
+            Instantiate(e, roomCenter.position + offset, Quaternion.identity);
         }
     }
 }

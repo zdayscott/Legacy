@@ -245,7 +245,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1432304348864512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.076508, y: -2.445652, z: -9.076137}
+  m_LocalPosition: {x: 38.076508, y: -2.445652, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224225453850741050}
@@ -590,11 +590,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1461798331208196}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114117087450346908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -610,11 +617,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1010804343667850}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114128549704902442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -627,6 +641,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114194319040698000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -639,6 +655,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114515161699358420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -663,6 +681,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114899217805260448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -675,6 +695,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeath: 10
+  expDroped: 5
+  Exit: {fileID: 0}
 --- !u!114 &114905381691420714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -702,11 +724,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1127091699890350}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114912352660385600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -722,11 +751,18 @@ MonoBehaviour:
   target: {fileID: 0}
   attackingDirection: {x: 1, y: 0}
   attackObject: {fileID: 1459265045643800}
+  bomb: {fileID: 0}
   closeEnough: 0.3
   range: 7
+  bossRange: 16
   attackTime: 0.25
   rechargeTime: 0.4
+  bombDelay: 3
+  castTime: 0.2
   attackOffset: 0.7
+  colliderY: 0
+  idleColor: {r: 0, g: 0, b: 0, a: 0}
+  castingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114947491888844642
 MonoBehaviour:
   m_ObjectHideFlags: 1

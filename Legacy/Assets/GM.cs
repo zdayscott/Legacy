@@ -24,7 +24,7 @@ public class GM : MonoBehaviour
 
     private void Start()
     {
-        currentFloor = 0;
+        currentFloor = 1;
         floorText.text = "Floor " + currentFloor;
     }
 
