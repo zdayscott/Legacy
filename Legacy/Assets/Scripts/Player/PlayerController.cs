@@ -136,9 +136,15 @@ public class PlayerController : MonoBehaviour {
     {
         dashRechargeRate = dashCoolDown;
         //rb.AddForce(lastPosition * dashPower, ForceMode2D.Impulse);
+        dashAnimate.SetActive(true);
         transform.position += lastPosition * dashPower;
-        GameObject dashTemp = Instantiate(dashAnimate, transform.position, transform.rotation) as GameObject;
-        Destroy(dashTemp, .3f);
+        StartCoroutine(Pause(0.3f));
+    }
+
+    IEnumerator Pause(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        dashAnimate.SetActive(false);
     }
 
     private bool CanDash(Vector3 start, Vector3 dir, float distance)
