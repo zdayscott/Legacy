@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7478c8c36a8b00743a4e62f03f444f4b, type: 3}
+  m_Name: Mithril Helmet
+  m_EditorClassIdentifier: 
+  name: New Item
+  discription: This is an item
+  icon: {fileID: 0}
+  type: 0
+  healthMod: 0
+  defenseMod: 0
+  movementMod: 0
