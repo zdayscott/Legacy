@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Player : MonoBehaviour {
     [Header("Health")]
@@ -25,10 +26,11 @@ public class Player : MonoBehaviour {
     public float movementSpeed_Current;
 
     public Text healthText;
+    public TMPro.TMP_Text levelText;
 
     [Header("Experience and Leveling")]
     private int experience;
-    private int level;
+    private int level=1;
     public Slider experienceBar = null;
     public Text expText;
 
@@ -82,6 +84,7 @@ public class Player : MonoBehaviour {
         experienceBar.value = experience;
         expText.text = experience + "/" + nextLevelEXP;
         healthText.text = health.ToString();
+        levelText.text = level.ToString();
 
         ResetStats();
        equipmentManager.onEquiptCallback += UpdateStats;
@@ -92,6 +95,7 @@ public class Player : MonoBehaviour {
     {
         expText.text = experience + "/" + nextLevelEXP;
         healthText.text = health.ToString();
+        levelText.text = level.ToString();
     }
 
     public void TakeDamage(int damage)
