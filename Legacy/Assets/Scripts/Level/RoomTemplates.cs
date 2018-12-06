@@ -16,8 +16,8 @@ public class RoomTemplates : MonoBehaviour {
     public GameObject boss;
     public GameObject[] enemies;
 
-    public float xOffset = 20f;
-    public float yOffset = 10f;
+    public float xOffset = 17f;
+    public float yOffset = 8f;
 
     void Update()
     {
