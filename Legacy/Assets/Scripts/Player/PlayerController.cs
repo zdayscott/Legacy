@@ -176,8 +176,7 @@ public class PlayerController : MonoBehaviour {
             // Instantiate the ninja star prefab and throw in the direction mouse is facing
             GameObject spareBomb = Instantiate(bomb, transform.position + attackDir + offset, transform.rotation) as GameObject;
             Rigidbody2D rbStar = spareBomb.GetComponent<Rigidbody2D>();
-    
-            rbStar.transform.Translate(transform.position + attackDir + offset);
+   
             rbStar.AddForce(attackDir * speed, ForceMode2D.Impulse);
             // Set string to player to help with detecting collisions
             //star.GetComponent<Projectile>().ShotFiredBy("Player");
