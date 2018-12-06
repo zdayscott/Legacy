@@ -111,9 +111,9 @@ public class Player : MonoBehaviour {
     void Die()
     {
         // Do die stuff (eg. clear inventory, delete save send weapon to server)
-        if(equipmentManager.currentWeapon is LegacyWeaponSO)
+        if(EquipmentManager.instance.currentWeapon is LegacyWeaponSO)
         {
-            GetComponent<LegacyLauncher>().SendWeapon((LegacyWeaponSO)equipmentManager.currentWeapon);
+            GetComponent<LegacyLauncher>().SendWeapon((LegacyWeaponSO)EquipmentManager.instance.currentWeapon);
         }
 
         // Call next scene or next function in gameover sequence

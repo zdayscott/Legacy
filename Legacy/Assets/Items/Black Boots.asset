@@ -14,7 +14,7 @@ MonoBehaviour:
   name: New Item
   discription: This is an item
   icon: {fileID: 21300000, guid: efb6fcdf88fa20f40a439a71713484be, type: 3}
-  type: 0
+  type: 2
   healthMod: 3
   defenseMod: 0.625
   movementMod: 2.5

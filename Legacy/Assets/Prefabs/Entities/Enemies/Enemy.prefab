@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 58595388005267752}
   - component: {fileID: 114658157016599196}
   - component: {fileID: 114413657926544614}
+  - component: {fileID: 114486987133356750}
   m_Layer: 5
   m_Name: Enemy
   m_TagString: Enemy
@@ -155,6 +156,58 @@ MonoBehaviour:
   maxHeath: 10
   expDroped: 5
   Exit: {fileID: 0}
+  LT: {fileID: 0}
+  lootChance: 33
+--- !u!114 &114486987133356750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928396185903674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7233e8fb2daeb45aa72dfb28099cbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loot:
+  - item: {fileID: 11400000, guid: 5f5da66fb7698ac4f89d66b06e462cd3, type: 2}
+    dropChance: 75
+  - item: {fileID: 11400000, guid: 5ff0daf6d43b38f4893f2c3ec5a1860a, type: 2}
+    dropChance: 75
+  - item: {fileID: 11400000, guid: b95b6d78def3faf44a6a3ee46a13f932, type: 2}
+    dropChance: 75
+  - item: {fileID: 11400000, guid: 067c266fccd40f04da8a78b0bec0437a, type: 2}
+    dropChance: 55
+  - item: {fileID: 11400000, guid: 07d393d0ebd82c64895063c15d008459, type: 2}
+    dropChance: 55
+  - item: {fileID: 11400000, guid: 3d33722a7dc97864d99753ed088dc21c, type: 2}
+    dropChance: 55
+  - item: {fileID: 11400000, guid: 9cb32e64dc223d040b5fe584ee506773, type: 2}
+    dropChance: 40
+  - item: {fileID: 11400000, guid: efdc7af0cbf69174580f85daeac36253, type: 2}
+    dropChance: 40
+  - item: {fileID: 11400000, guid: 8d9402816b4351a4ca68e75de25fbc2e, type: 2}
+    dropChance: 40
+  - item: {fileID: 11400000, guid: 5e08b5a3a65785840a05752f5a1a175e, type: 2}
+    dropChance: 25
+  - item: {fileID: 11400000, guid: 6402d7f83d2802d41abbd19777dd3652, type: 2}
+    dropChance: 25
+  - item: {fileID: 11400000, guid: a4b2f4ddd0b3dcd4b92a6917b9e4f74d, type: 2}
+    dropChance: 25
+  - item: {fileID: 11400000, guid: 6a964240f489db1428dc0d77fd8645a1, type: 2}
+    dropChance: 10
+  - item: {fileID: 11400000, guid: bc853d56984db994485d4898c283f584, type: 2}
+    dropChance: 10
+  - item: {fileID: 11400000, guid: fd854e70f63a4e146822d09f64259187, type: 2}
+    dropChance: 10
+  - item: {fileID: 11400000, guid: 930441284e4a23d4ba114856e65572e3, type: 2}
+    dropChance: 5
+  - item: {fileID: 11400000, guid: 5eaad3249c269164cb083a623ff16f0a, type: 2}
+    dropChance: 5
+  - item: {fileID: 11400000, guid: 3bb0a14a8e450a04abbce8f0911d0851, type: 2}
+    dropChance: 5
+  itemContainer: {fileID: 1917258531000854, guid: 85c8ab5528e328e44bd1f881ece5104c,
+    type: 2}
 --- !u!114 &114646700526360162
 MonoBehaviour:
   m_ObjectHideFlags: 1

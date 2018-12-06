@@ -14,8 +14,8 @@ MonoBehaviour:
   name: Legacy O Testing
   discription: 'Kings Kneel Before the Wielder of this mighty '
   icon: {fileID: 21300000, guid: 25b6b275757df4f589d23b542f236cb0, type: 3}
-  damage: 17
+  damage: 5
   attackSpeed: 0
   type: 3
-  level: 5
+  level: 1
   Kills: 1
