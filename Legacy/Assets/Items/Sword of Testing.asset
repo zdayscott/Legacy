@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Sword of Testing
   discription: Not much to look at, but a solid training tool.
-  icon: {fileID: 21300000, guid: 6240254bc595fc742bbfe625550ef98b, type: 3}
+  icon: {fileID: 21300000, guid: abf2267d9d3758e47a37a1944e60512b, type: 3}
   damage: 500
   attackSpeed: 0
   type: 3

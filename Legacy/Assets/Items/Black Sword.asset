@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb585f41acbfb7840a94a660483273e3, type: 3}
   m_Name: Black Sword
   m_EditorClassIdentifier: 
-  name: New Item
+  name: Black Sword
   discription: This is an item
-  icon: {fileID: 0}
-  damage: 0
+  icon: {fileID: 21300000, guid: d6e2621f886d64b4aa1b46c2cc4ecc32, type: 3}
+  damage: 10
   attackSpeed: 0
   type: 3

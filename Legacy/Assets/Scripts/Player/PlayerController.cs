@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -24,6 +25,9 @@ public class PlayerController : MonoBehaviour {
     public GameObject ninjaStar;
     public GameObject bomb;
     public int numOfStars;
+    public Image starRecharge;
+    public Image dashRecharge;
+
 
     Vector2 attackingDirection = new Vector2(1,0);
 
@@ -160,7 +164,10 @@ public class PlayerController : MonoBehaviour {
         nextStarReady -= Time.deltaTime;
         dashRechargeRate -= Time.deltaTime;
 
-        if(attackTimeCurrent > 0)
+        starRecharge.fillAmount = 1 - nextStarReady / 2;
+        dashRecharge.fillAmount = 1 - dashRechargeRate / 2;
+
+        if (attackTimeCurrent > 0)
         {
             attackTimeCurrent -= Time.deltaTime;
         }

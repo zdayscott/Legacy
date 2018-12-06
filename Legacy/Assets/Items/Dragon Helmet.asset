@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: New Item
   discription: This is an item
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 95dff2b6badbb5d438dd969b80b9093c, type: 3}
   type: 0
-  healthMod: 0
-  defenseMod: 0
-  movementMod: 0
+  healthMod: 6
+  defenseMod: 1.875
+  movementMod: -0.625
