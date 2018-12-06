@@ -70,10 +70,14 @@ public class Projectile : MonoBehaviour {
             collide.GetComponent<EnemyStats>().TakeDamage(damage, fire);
             Destroy(gameObject);
         }
-        else if (collide.gameObject.tag == "Enemy" && shooter == "Enemy" || collide.gameObject.tag == "Player" && shooter == "Player" 
+        else if (collide.gameObject.tag == "Player" && shooter == "Player" 
                  || collide.gameObject.tag == "RoomSpawn")
         {
  
+        }
+        else if (collide.gameObject.tag == "Enemey" && shooter == "Enemy")
+        {
+
         }
         else
         {

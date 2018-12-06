@@ -6,7 +6,13 @@ public class PlayerController : MonoBehaviour {
 
     Rigidbody2D rb;
 
+    public float dashCoolDown = 5f;
+    private float dashRechargeRate = 0f;
+    public float dashPower = 10f;
+
     public int speed = 5;
+    private Vector3 lastPosition;
+
     Player playerStats;
 
     [Header("Attack Variables")]
@@ -45,6 +51,7 @@ public class PlayerController : MonoBehaviour {
 	void Update ()
     {
         MovePlayer();
+        //lastPosition = transform.position;
 
         if (Input.GetButton("Fire1"))
         {
@@ -53,6 +60,10 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButton("Fire2"))
         {
             ThrowProjectile();
+        }
+        if (Input.GetButton("Jump") && dashRechargeRate <= 0)
+        {
+            Dash();
         }
         UpdateCooldowns();
     }
@@ -64,7 +75,7 @@ public class PlayerController : MonoBehaviour {
         float horz = Input.GetAxisRaw("Horizontal");
         float vert = Input.GetAxisRaw("Vertical");
         move = new Vector2(horz, vert).normalized;
-
+        lastPosition = move;
         rb.transform.Translate(move * playerStats.movementSpeed_Current * Time.deltaTime);
     }
 
@@ -107,6 +118,12 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    void Dash()
+    {
+        dashRechargeRate = dashCoolDown;
+        rb.AddForce(lastPosition * dashPower, ForceMode2D.Impulse);
+    }
+
     void ThrowBomb()
     {
 
@@ -122,6 +139,8 @@ public class PlayerController : MonoBehaviour {
     {
         rechargeTimeCurrent -= Time.deltaTime;
         nextStarReady -= Time.deltaTime;
+        dashRechargeRate -= Time.deltaTime;
+
         if(attackTimeCurrent > 0)
         {
             attackTimeCurrent -= Time.deltaTime;
