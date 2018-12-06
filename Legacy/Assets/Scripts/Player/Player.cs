@@ -137,6 +137,13 @@ public class Player : MonoBehaviour {
         UpdateStats();
 
         HealOnLvlUp();
+
+        if (equipmentManager.currentWeapon is LegacyWeaponSO)
+        {
+            LegacyWeaponSO legacy = (LegacyWeaponSO)equipmentManager.currentWeapon;
+            legacy.level++;
+            legacy.damage += legacy.level;
+        }
     }
 
     void UpgradeBaseStats()
