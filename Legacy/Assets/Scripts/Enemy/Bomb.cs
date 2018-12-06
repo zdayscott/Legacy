@@ -14,6 +14,7 @@ public class Bomb : MonoBehaviour {
     public int damage = 30;
     private bool exploded;
 
+    public GameObject boomEffect;
     // Colors the bomb will alternate between
     public Color StartColor = Color.black;
     public Color endColor = Color.red;
@@ -87,6 +88,7 @@ public class Bomb : MonoBehaviour {
         // to spread fire in random directions
         StartCoroutine(SpreadFire());
         bombSprite.enabled = false;
+        GameObject boom = Instantiate(boomEffect, transform.position, transform.rotation) as GameObject;
         Destroy(gameObject, .16f);
     }
 

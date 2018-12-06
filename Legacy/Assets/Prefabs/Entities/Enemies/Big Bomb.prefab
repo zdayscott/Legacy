@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fire: {fileID: 1405838945913592, guid: 89d72af86d7a99044bba17d1009e5e38, type: 2}
+  spread: 5
   timer: 3
   radius: 1.5
   power: 5
