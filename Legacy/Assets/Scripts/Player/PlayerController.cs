@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject bomb;
     public float nextBombReady;
     public float bombCooldown;
+    public float bombCount;
 
     public int numOfStars;
     public Image starRecharge;
@@ -170,15 +171,18 @@ public class PlayerController : MonoBehaviour {
         Vector3 attackDir = new Vector3(mousePos.x - this.transform.position.x, mousePos.y - this.transform.position.y, 0).normalized;
         Vector3 offset = new Vector3(attackDir.x * .3f, attackDir.y * .3f, 0); // offset needed to avoid collision with player
 
-        if (nextBombReady <= 0)
+        if (nextBombReady <= 0 && bombCount > 0)
         {
             // Instantiate the ninja star prefab and throw in the direction mouse is facing
             GameObject spareBomb = Instantiate(bomb, transform.position + attackDir + offset, transform.rotation) as GameObject;
             Rigidbody2D rbStar = spareBomb.GetComponent<Rigidbody2D>();
+    
+            rbStar.transform.Translate(transform.position + attackDir + offset);
             rbStar.AddForce(attackDir * speed, ForceMode2D.Impulse);
             // Set string to player to help with detecting collisions
             //star.GetComponent<Projectile>().ShotFiredBy("Player");
             nextBombReady = bombCooldown;
+            bombCount -= 1;
         }
     }
 
