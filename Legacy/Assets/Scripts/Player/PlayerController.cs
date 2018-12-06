@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     Rigidbody2D rb;
 
+    public GameObject dashAnimate;
     public float dashCoolDown = 5f;
     private float dashRechargeRate = 0f;
     public float dashPower = 10f;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour {
     // Gameobject used for players weapons
     public GameObject ninjaStar;
     public GameObject bomb;
+    public int numOfStars;
 
     Vector2 attackingDirection = new Vector2(1,0);
 
@@ -58,7 +60,7 @@ public class PlayerController : MonoBehaviour {
         {
             Attack();
         }
-        if (Input.GetButton("Fire2"))
+        if (Input.GetButton("Fire2") && numOfStars > 0)
         {
             ThrowProjectile();
         }
@@ -122,6 +124,7 @@ public class PlayerController : MonoBehaviour {
             // Set string to player to help with detecting collisions
             star.GetComponent<Projectile>().ShotFiredBy("Player");
             nextStarReady = ninjaStarCD;
+            numOfStars -= 1;
         }
     }
 
@@ -130,6 +133,8 @@ public class PlayerController : MonoBehaviour {
         dashRechargeRate = dashCoolDown;
         //rb.AddForce(lastPosition * dashPower, ForceMode2D.Impulse);
         transform.position += lastPosition * dashPower;
+        GameObject dashTemp = Instantiate(dashAnimate, transform.position, transform.rotation) as GameObject;
+        Destroy(dashTemp, .3f);
     }
 
     private bool CanDash(Vector3 start, Vector3 dir, float distance)
