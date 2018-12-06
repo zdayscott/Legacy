@@ -122,9 +122,34 @@ public class Player : MonoBehaviour {
 
     void LevelUp()
     {
-            experience -= expLevels[level];
-            level++;
-            experienceBar.maxValue = expLevels[level];
+        experience -= expLevels[level];
+        level++;
+        experienceBar.maxValue = expLevels[level];
+        UpgradeBaseStats();
+        UpdateStats();
+
+        HealOnLvlUp();
+    }
+
+    void UpgradeBaseStats()
+    {
+
+        switch(level % 4)
+        {
+            case 1:
+                Debug.Log("Level UP!");
+                maxHealth += 25;
+                break;
+            case 2:
+                attackDamage_Base += 1 + level / 4;
+                break;
+            case 3:
+                maxHealth += 10;
+                break;
+            case 0:
+                movementSpeed_Base += .5f;
+                break;
+        }
     }
 
     void ResetStats()
@@ -153,5 +178,12 @@ public class Player : MonoBehaviour {
             Debug.Log("Updating Weapon Stats!!!");
             attackDamage_Current += equipmentManager.currentWeapon.damage;
         }
+    }
+
+    void HealOnLvlUp()
+    {
+        health = maxHealth;
+        healthbar.maxValue = maxHealth;
+        healthbar.value = Mathf.Max(0, health);
     }
 }

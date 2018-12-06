@@ -36,7 +36,6 @@ public class EnemyStats : MonoBehaviour {
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().ExpGain(expDroped);
 
-        Debug.Log(this.gameObject.tag);
         if(this.gameObject.tag == "Boss")
         {
             Debug.Log("Spawning Exit!!!");
