@@ -193,6 +193,12 @@ Prefab:
       propertyPath: expText
       value: 
       objectReference: {fileID: 170001900}
+    - target: {fileID: 114858605515464530, guid: f0ac855f565289a44843f241ad4fef62,
+        type: 2}
+      propertyPath: bomb
+      value: 
+      objectReference: {fileID: 1405838945913592, guid: 89d72af86d7a99044bba17d1009e5e38,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0ac855f565289a44843f241ad4fef62, type: 2}
   m_IsPrefabAsset: 0

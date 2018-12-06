@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour {
     // Gameobject used for players weapons
     public GameObject ninjaStar;
     public GameObject bomb;
+    public float nextBombReady;
+    public float bombCooldown;
+
     public int numOfStars;
     public Image starRecharge;
     public Image dashRecharge;
@@ -68,7 +71,11 @@ public class PlayerController : MonoBehaviour {
         {
             ThrowProjectile();
         }
-     
+        if (Input.GetButton("Bomb"))
+        {
+            ThrowBomb();
+        }
+
         UpdateCooldowns();
     }
 
@@ -155,7 +162,24 @@ public class PlayerController : MonoBehaviour {
 
     void ThrowBomb()
     {
+        // calculate direction the player is facing
+        Vector3 mousePos = Input.mousePosition;
+        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
+        // Calculate which direction the mouse is moving
+        Vector3 attackDir = new Vector3(mousePos.x - this.transform.position.x, mousePos.y - this.transform.position.y, 0).normalized;
+        Vector3 offset = new Vector3(attackDir.x * .3f, attackDir.y * .3f, 0); // offset needed to avoid collision with player
+
+        if (nextBombReady <= 0)
+        {
+            // Instantiate the ninja star prefab and throw in the direction mouse is facing
+            GameObject spareBomb = Instantiate(bomb, transform.position + attackDir + offset, transform.rotation) as GameObject;
+            Rigidbody2D rbStar = spareBomb.GetComponent<Rigidbody2D>();
+            rbStar.AddForce(attackDir * speed, ForceMode2D.Impulse);
+            // Set string to player to help with detecting collisions
+            //star.GetComponent<Projectile>().ShotFiredBy("Player");
+            nextBombReady = bombCooldown;
+        }
     }
 
 
@@ -169,6 +193,7 @@ public class PlayerController : MonoBehaviour {
         rechargeTimeCurrent -= Time.deltaTime;
         nextStarReady -= Time.deltaTime;
         dashRechargeRate -= Time.deltaTime;
+        nextBombReady -= Time.deltaTime;
 
         starRecharge.fillAmount = 1 - nextStarReady / 2;
         dashRecharge.fillAmount = 1 - dashRechargeRate / 2;
