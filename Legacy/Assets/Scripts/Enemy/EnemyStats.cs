@@ -11,10 +11,14 @@ public class EnemyStats : MonoBehaviour {
 
     public GameObject Exit;
 
+    public LootTable LT;
+    public int lootChance = 33;
+
 	// Use this for initialization
 	void Start ()
     {
         currentHealth = maxHeath;
+        LT = this.GetComponent<LootTable>();
 	}
 	
 	// Update is called once per frame
@@ -44,6 +48,16 @@ public class EnemyStats : MonoBehaviour {
             Quaternion rot = this.transform.rotation;
             rot.z = 0;
             Instantiate(Exit, pos, rot);
+        }
+
+        //Check if it does drop anything
+        if(LT != null && Random.Range(0,100) <= lootChance)
+        {
+            Vector3 posL = this.transform.position;
+            posL.z = -1;
+            Quaternion rotL = this.transform.rotation;
+            rotL.z = 0;
+            Instantiate(LT.RollLoot(), posL, rotL);
         }
 
         Destroy(this.gameObject);

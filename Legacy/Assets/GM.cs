@@ -32,4 +32,9 @@ public class GM : MonoBehaviour
     {
         floorText.text = "Floor " + currentFloor;
     }
+
+    void LootDropper(Transform pos)
+    {
+
+    }
 }
