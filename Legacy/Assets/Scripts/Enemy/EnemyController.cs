@@ -156,7 +156,7 @@ public class EnemyController : MonoBehaviour
     { 
         bombRechargeRate = bombDelay;
 
-        GameObject spareBomb = Instantiate(bomb, gameObject.transform.position + transform.position, transform.rotation) as GameObject;
+        GameObject spareBomb = Instantiate(bomb, gameObject.transform.position + transform.up, transform.rotation) as GameObject;
 
         // Get rigidbody and apply a force to bomb
         Rigidbody2D rigidbody = spareBomb.GetComponent<Rigidbody2D>();
