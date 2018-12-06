@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 114858605515464530}
   - component: {fileID: 114226793338457288}
   - component: {fileID: 58276234362274466}
+  - component: {fileID: 114334438888593576}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -86,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1658272800210774}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.43, y: -26.1, z: 3.0176134}
+  m_LocalPosition: {x: 10, y: 5, z: 3.0176134}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 4331195483136642}
@@ -210,15 +211,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   healthbar: {fileID: 0}
-  defense: 1
-  attackDamage: 0
-  attackSpeed: 0
-  movementSpeed: 0
+  defense_Base: 1
+  attackDamage_Base: 2
+  attackSpeed_Base: 1
+  movementSpeed_Base: 10
+  defense_Current: 0
+  attackDamage_Current: 0
+  attackSpeed_Current: 0
+  movementSpeed_Current: 0
   healthText: {fileID: 0}
+  levelText: {fileID: 0}
   experienceBar: {fileID: 0}
   expText: {fileID: 0}
   expLevels: 32000000c800000090010000ee020000dc050000d0070000b80b00009411000070170000401f0000
-  itemDropLoc: {fileID: 0}
+  itemDropLoc: {fileID: 4407305921263952}
+--- !u!114 &114334438888593576
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1658272800210774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbee59e139b1e9148ae748d2d9d0c52d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114858605515464530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,11 +247,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd7f3f2cc3517a45bd350e5bd745aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashCoolDown: 2
+  dashPower: 3
   speed: 10
   attackObj: {fileID: 1169590994624502}
   ninjaStar: {fileID: 1529430270709894, guid: 529f5d9b20beb5748a44f2e022ecd6f2, type: 2}
+  bomb: {fileID: 0}
   attackTime: 0.25
   rechargeTime: 0.4
+  ninjaStarCD: 2
 --- !u!212 &212244092220090782
 SpriteRenderer:
   m_ObjectHideFlags: 1
