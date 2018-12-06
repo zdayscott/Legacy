@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd7f3f2cc3517a45bd350e5bd745aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashCoolDown: 1
+  dashCoolDown: 2
   dashPower: 3
   speed: 10
   attackObj: {fileID: 1169590994624502}
