@@ -50,8 +50,9 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        Vector2 startPoint = transform.position + lastPosition * 2f;
+        Debug.DrawRay(startPoint, lastPosition * dashPower, Color.yellow, .1f, true);
         MovePlayer();
-        //lastPosition = transform.position;
 
         if (Input.GetButton("Fire1"))
         {
@@ -61,10 +62,7 @@ public class PlayerController : MonoBehaviour {
         {
             ThrowProjectile();
         }
-        if (Input.GetButton("Jump") && dashRechargeRate <= 0)
-        {
-            Dash();
-        }
+     
         UpdateCooldowns();
     }
 
@@ -75,6 +73,15 @@ public class PlayerController : MonoBehaviour {
         float horz = Input.GetAxisRaw("Horizontal");
         float vert = Input.GetAxisRaw("Vertical");
         move = new Vector2(horz, vert).normalized;
+
+        Vector2 startPoint = transform.position + lastPosition * 2f;
+        if (Input.GetButton("Jump") && CanDash(startPoint, move , dashPower))
+        {
+            if (dashRechargeRate <= 0)
+            {
+                Dash();
+            }
+        }
         lastPosition = move;
         rb.transform.Translate(move * playerStats.movementSpeed_Current * Time.deltaTime);
     }
@@ -125,7 +132,14 @@ public class PlayerController : MonoBehaviour {
     void Dash()
     {
         dashRechargeRate = dashCoolDown;
-        rb.AddForce(lastPosition * dashPower, ForceMode2D.Impulse);
+        //rb.AddForce(lastPosition * dashPower, ForceMode2D.Impulse);
+        transform.position += lastPosition * dashPower;
+    }
+
+    private bool CanDash(Vector3 start, Vector3 dir, float distance)
+    {
+        return Physics2D.Raycast(start , dir, distance).collider == null;
+
     }
 
     void ThrowBomb()
