@@ -35,6 +35,7 @@ public class Player : MonoBehaviour {
     [SerializeField]
     // Experience needed to get to next level
     private int[] expLevels;
+    private int nextLevelEXP = 50;
 
 
     public Transform itemDropLoc;
@@ -76,10 +77,10 @@ public class Player : MonoBehaviour {
         healthbar.maxValue = maxHealth;
         healthbar.minValue = 0f;
 
-        experienceBar.maxValue = expLevels[level];
+        experienceBar.maxValue = nextLevelEXP;
         experienceBar.minValue = 0;
         experienceBar.value = experience;
-        expText.text = experience + "/" + expLevels[level];
+        expText.text = experience + "/" + nextLevelEXP;
         healthText.text = health.ToString();
 
         ResetStats();
@@ -89,7 +90,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        expText.text = experience + "/" + expLevels[level];
+        expText.text = experience + "/" + nextLevelEXP;
         healthText.text = health.ToString();
     }
 
@@ -113,7 +114,7 @@ public class Player : MonoBehaviour {
     public void ExpGain(int exp)
     {
         experience += exp;
-        if(experience >= expLevels[level])
+        if(experience >= nextLevelEXP)
         {
             LevelUp();
         }
@@ -122,9 +123,37 @@ public class Player : MonoBehaviour {
 
     void LevelUp()
     {
-            experience -= expLevels[level];
-            level++;
-            experienceBar.maxValue = expLevels[level];
+        experience -= nextLevelEXP;
+        level++;
+        float nxt = nextLevelEXP * (2f + ((float)level / 10f));
+        Debug.Log(nxt);
+        nextLevelEXP = (int)nxt;
+        experienceBar.maxValue = nextLevelEXP;
+        UpgradeBaseStats();
+        UpdateStats();
+
+        HealOnLvlUp();
+    }
+
+    void UpgradeBaseStats()
+    {
+
+        switch(level % 4)
+        {
+            case 1:
+                Debug.Log("Level UP!");
+                maxHealth += 25;
+                break;
+            case 2:
+                attackDamage_Base += 1 + level / 4;
+                break;
+            case 3:
+                maxHealth += 10;
+                break;
+            case 0:
+                movementSpeed_Base += .5f;
+                break;
+        }
     }
 
     void ResetStats()
@@ -150,8 +179,14 @@ public class Player : MonoBehaviour {
 
         if(equipmentManager.currentWeapon != null)
         {
-            Debug.Log("Updating Weapon Stats!!!");
             attackDamage_Current += equipmentManager.currentWeapon.damage;
         }
+    }
+
+    void HealOnLvlUp()
+    {
+        health = maxHealth;
+        healthbar.maxValue = maxHealth;
+        healthbar.value = Mathf.Max(0, health);
     }
 }

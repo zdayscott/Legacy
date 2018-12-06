@@ -82,7 +82,6 @@ public class Inventory : MonoBehaviour {
 
     public void EquiptWeapon(WeaponSO wep)
     {
-        Debug.Log(wep);
         EquiptWep(wep);
 
         Remove(wep);
@@ -90,7 +89,6 @@ public class Inventory : MonoBehaviour {
 
     private void EquiptWep(WeaponSO wep)
     {
-        Debug.Log(wep);
         equipmentManager.EquiptWeapon(wep as WeaponSO);
     }
 }

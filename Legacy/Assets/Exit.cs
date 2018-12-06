@@ -16,7 +16,8 @@ public class Exit : MonoBehaviour {
     void NextLevel(GameObject player)
     {
         player.transform.position = resetPoint;
-        GM.instance.currentFloor++;
+        GameObject gm = GameObject.FindGameObjectWithTag("Game Manager");
+        gm.GetComponent<GM>().currentFloor++;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

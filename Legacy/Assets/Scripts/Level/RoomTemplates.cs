@@ -33,7 +33,8 @@ public class RoomTemplates : MonoBehaviour {
                 }
                 else
                 {
-                    EnemySpawner(i * GM.instance.currentFloor, rooms[i].transform);
+                    int diff = i * GM.instance.currentFloor;
+                    EnemySpawner(Random.Range(i,diff), rooms[i].transform);
                 }
             }
         }
