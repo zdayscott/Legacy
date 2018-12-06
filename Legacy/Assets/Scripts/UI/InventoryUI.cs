@@ -58,7 +58,6 @@ public class InventoryUI : MonoBehaviour {
 
         if(equipmentManager.currentWeapon != null)
         {
-            Debug.Log("Attempting to Show Weapon!");
             equiptmentSlots[3].AddItem(equipmentManager.currentWeapon);
         }
         else

@@ -81,7 +81,6 @@ public class InventorySlot : MonoBehaviour
     {
         if(item is WeaponSO)
         {
-            Debug.Log(item as WeaponSO);
             Inventory.instance.EquiptWeapon(item as WeaponSO);
         }
         else if (item is HelmetSO || item is ArmorSO || item is BootsSO)

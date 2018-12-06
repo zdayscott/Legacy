@@ -22,7 +22,6 @@ public class Attack : MonoBehaviour {
     {
         if((collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Boss") && !enemiesHit.Contains(collision))
         {
-            Debug.Log("Attacking: " + collision.gameObject.name);
             collision.GetComponent<EnemyStats>().TakeDamage(damage, player);
             enemiesHit.Add(collision);
         }
