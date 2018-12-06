@@ -21,9 +21,12 @@ public class Bomb : MonoBehaviour {
     private SpriteRenderer bombSprite;
     public Material bombMaterial;
 
+    private Rigidbody2D rb;
+
 	// Use this for initialization
 	void Start ()
     {
+        rb = GetComponent<Rigidbody2D>();
         bombSprite = GetComponent<SpriteRenderer>();
         exploded = false;
         StartCoroutine(ChangeColor());
@@ -92,7 +95,8 @@ public class Bomb : MonoBehaviour {
         for (int i = 0; i < 8; i++)
         {
             Vector3 direction = new Vector3(Random.Range(-spread, spread), Random.Range(-spread, spread), 0);
-            Instantiate(fire, transform.position + direction, transform.rotation);
+            GameObject temp = Instantiate(fire, transform.position, transform.rotation) as GameObject;
+            rb.AddForce(direction * power, ForceMode2D.Impulse);
             yield return new WaitForSeconds(.02f);
         }
     }
