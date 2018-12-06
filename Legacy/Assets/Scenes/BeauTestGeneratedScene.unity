@@ -158,16 +158,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114858605515464530, guid: f0ac855f565289a44843f241ad4fef62,
-        type: 2}
-      propertyPath: starRecharge
-      value: 
-      objectReference: {fileID: 1325986061}
-    - target: {fileID: 114858605515464530, guid: f0ac855f565289a44843f241ad4fef62,
-        type: 2}
-      propertyPath: dashRecharge
-      value: 
-      objectReference: {fileID: 1393306387}
     - target: {fileID: 114226793338457288, guid: f0ac855f565289a44843f241ad4fef62,
         type: 2}
       propertyPath: healthbar
@@ -195,10 +185,19 @@ Prefab:
       objectReference: {fileID: 170001900}
     - target: {fileID: 114858605515464530, guid: f0ac855f565289a44843f241ad4fef62,
         type: 2}
-      propertyPath: bomb
+      propertyPath: starRecharge
       value: 
-      objectReference: {fileID: 1405838945913592, guid: 89d72af86d7a99044bba17d1009e5e38,
+      objectReference: {fileID: 1325986061}
+    - target: {fileID: 114858605515464530, guid: f0ac855f565289a44843f241ad4fef62,
         type: 2}
+      propertyPath: dashRecharge
+      value: 
+      objectReference: {fileID: 1393306387}
+    - target: {fileID: 114858605515464530, guid: f0ac855f565289a44843f241ad4fef62,
+        type: 2}
+      propertyPath: bombRecharge
+      value: 
+      objectReference: {fileID: 1225202974}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0ac855f565289a44843f241ad4fef62, type: 2}
   m_IsPrefabAsset: 0
@@ -413,9 +412,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentFloor: 0
   floorText: {fileID: 2038141866}
---- !u!114 &1325986061 stripped
+--- !u!114 &1225202974 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114068328577887760, guid: 604cd69dd4ccc6247a10f9925b999e76,
+    type: 2}
+  m_PrefabInternal: {fileID: 1963256359}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1325986061 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114482125224026940, guid: 604cd69dd4ccc6247a10f9925b999e76,
     type: 2}
   m_PrefabInternal: {fileID: 1963256359}
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -707,6 +712,16 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114566619759685788, guid: 604cd69dd4ccc6247a10f9925b999e76,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114566619759685788, guid: 604cd69dd4ccc6247a10f9925b999e76,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114380388071395354, guid: 604cd69dd4ccc6247a10f9925b999e76,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -727,16 +742,6 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114566619759685788, guid: 604cd69dd4ccc6247a10f9925b999e76,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114566619759685788, guid: 604cd69dd4ccc6247a10f9925b999e76,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114013634365538570, guid: 604cd69dd4ccc6247a10f9925b999e76,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -746,16 +751,6 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224569560867947046, guid: 604cd69dd4ccc6247a10f9925b999e76,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -123.700195
-      objectReference: {fileID: 0}
-    - target: {fileID: 224569560867947046, guid: 604cd69dd4ccc6247a10f9925b999e76,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 124.3999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 604cd69dd4ccc6247a10f9925b999e76, type: 2}

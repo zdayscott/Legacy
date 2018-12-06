@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour {
     public int numOfStars;
     public Image starRecharge;
     public Image dashRecharge;
+    public Image bombRecharge;
 
 
     Vector2 attackingDirection = new Vector2(1,0);
@@ -200,6 +201,7 @@ public class PlayerController : MonoBehaviour {
 
         starRecharge.fillAmount = 1 - nextStarReady / 2;
         dashRecharge.fillAmount = 1 - dashRechargeRate / 2;
+        bombRecharge.fillAmount = 1 - nextBombReady / 2;
 
         if (attackTimeCurrent > 0)
         {

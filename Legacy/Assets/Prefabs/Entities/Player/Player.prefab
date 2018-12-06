@@ -355,10 +355,14 @@ MonoBehaviour:
   speed: 10
   attackObj: {fileID: 1169590994624502}
   ninjaStar: {fileID: 1529430270709894, guid: 529f5d9b20beb5748a44f2e022ecd6f2, type: 2}
-  bomb: {fileID: 0}
-  numOfStars: 5
+  bomb: {fileID: 1405838945913592, guid: 89d72af86d7a99044bba17d1009e5e38, type: 2}
+  nextBombReady: 0
+  bombCooldown: 2
+  bombCount: 500
+  numOfStars: 500
   starRecharge: {fileID: 0}
   dashRecharge: {fileID: 0}
+  bombRecharge: {fileID: 0}
   attackTime: 0.25
   rechargeTime: 0.4
   ninjaStarCD: 2
